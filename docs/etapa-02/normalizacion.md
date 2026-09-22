@@ -50,3 +50,35 @@ Por último, VETERINARIO_ESPECIALIDAD permite representar que un veterinario pue
 VETERINARIO_ESPECIALIDAD:
 id_veterinario | id_ especialidad | nombre
 Estas tablas intermedias permiten representar correctamente las relaciones N mediante registros individuales, evitando almacenar listas o grupos de valores dentro de un mismo atributo. De esta manera, cada atributo mantiene un único valor, las cantidades variables de elementos se representan mediante diferentes registros y se evita la repetición innecesaria de información.
+
+Segunda Forma Normal 2FN 
+La Segunda Forma Normal establece que una tabla debe encontrarse previamente en Primera Forma Normal y, además, todos los atributos que no forman parte de la clave primaria deben depender de la totalidad de la clave primaria.
+El objetivo de esta forma normal es evitar las dependencias parciales, es decir, situaciones donde un atributo depende solamente de una parte de una clave primaria compuesta y no de la clave completa. En nuestro modelo relacional, este análisis es especialmente importante en las tablas que utilizan claves primarias compuestas, ya que están formadas por más de un atributo.
+Por ejemplo, en la tabla DETALLE_VENTA tenemos:
+DETALLE_VENTA:
+id_venta | id_producto | cantidad | precio_unitario | subtotal
+La clave primaria está formada por la combinación:		PK = (id_venta, id_producto)
+Esto significa que un registro del detalle queda identificado de manera única por la combinación de la venta y el producto.
+Los atributos cantidad, precio_unitario y subtotal corresponden específicamente a la participación de ese producto dentro de esa venta. Por lo tanto, no dependen solamente de id_venta ni solamente de id_producto, sino de la combinación de ambos atributos.
+Por lo tanto:
+(id_venta, id_producto) → cantidad, precio_unitario, subtotal
+De esta manera, los atributos no clave dependen de la clave primaria completa y no de una parte de ella, cumpliendo con el principio de la Segunda Forma Normal.
+También se aplica el mismo análisis en PRODUCTO_PROVEEDOR:
+PRODUCTO_PROVEEDOR:
+id_proveedor | id_producto | precio_compra | cantidad
+La clave primaria está formada por:		PK = (id_proveedor, id_producto)
+En este caso, precio_compra y cantidad corresponden a la relación específica entre un determinado proveedor y un determinado producto.
+El precio de compra puede ser diferente según el proveedor que suministre el producto. Por este motivo, estos datos no dependen solamente del producto ni solamente del proveedor, sino de la combinación de ambos.
+Entonces:	(id_proveedor, id_producto) → precio_compra, cantidad
+Por lo tanto, los atributos dependen de la clave completa.
+estos mismos criterios se aplicaron para las demás tablas con PK compuesta:
+DETALLE_TRATAMIENTO:
+id_tratamiento | id_medicamento | cantidad | dosis | duración
+Su clave primaria está formada por:	PK = (id_tratamiento, id_medicamento)
+MEDICAMENTO_PROVEEDOR:
+id_medicamento | id_proveedor | precio_compra | cantidad
+Su clave primaria es:	PK = (id_medicamento, id_proveedor)
+VETERINARIO_ESPECIALIDAD:
+id_veterinario | id_especialidad | nombre
+Su clave primaria está formada por:	PK = (id_veterinario, id_especialidad)
+En nuestro modelo, este análisis permite mantener separados los datos propios de cada entidad y evitar la repetición de información. De esta forma, se eliminan las dependencias parciales y el modelo cumple con los principios correspondientes a la Segunda Forma Normal 
