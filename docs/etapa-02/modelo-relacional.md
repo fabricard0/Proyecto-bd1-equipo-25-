@@ -300,4 +300,887 @@
 "selected": false,
 "dragging": false
 },
+"data": {
+
+"label": "TRATAMIENTO",
+
+"isConnectable": false,
+
+"columns": [
+
+{
+
+"id": "a4dc2a54-c883-4c74-9870-e6fca21a2bc9",
+
+"name": "descripcion",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "1084c1e6-3c07-40d8-90fd-75469ded1ea3",
+
+"name": "tipo\_tratamiento",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "37a051f0-6886-439e-89fd-f84d5752e9ca",
+
+"name": "sintomas",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "284313f3-06d3-41ef-82cd-af01a2c6c2c2",
+
+"name": "duracion\_tratamiento",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "5bc774a9-ab01-4499-9e2e-59470f3435bb",
+
+"name": "id\_tratamiento",
+
+"type": "INT",
+
+"position": 0,
+
+"isPrimaryKey": true,
+
+"isOptional": false
+
+},
+
+{
+
+"id": "fk\_f7034578-e360-4bdf-8e16-71c91739fb78",
+
+"name": "fk\_CONSULTA",
+
+"type": "None",
+
+"isForeignKey": true,
+
+"foreignKeyProps": {
+
+"foreignKeyGroupId": "fdde9089-8cd8-4053-a761-6637f6c49e4c",
+
+"sourceTableId": "497ec7eb-bc68-4cf7-aa8b-14a3741ff313",
+
+"columns": [
+
+{
+
+"id": "fk\_334b761b-9780-49e0-a69c-34b08abb2759",
+
+"name": "nro\_consulta",
+
+"type": "INT"
+
+}
+
+]
+
+}
+
+}
+
+],
+
+"numberOfGroups": 0,
+
+"isSelected": false
+
+},
+
+"measured": {
+
+"width": 240,
+
+"height": 174
+
+},
+
+"selected": false,
+
+"dragging": false
+
+},
+
+{
+
+"id": "1bb6e589-1e48-445e-8915-c5b522548ee5",
+
+"type": "Table",
+
+"position": {
+
+"x": 1605.1169940141176,
+
+"y": -12.509373111228072
+
+},
+
+"data": {
+
+"label": "PROVEEDOR",
+
+"isConnectable": false,
+
+"columns": [
+
+{
+
+"id": "4955f5f4-fbb4-4f12-a641-4230f06d67ab",
+
+"name": "dirrecion",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "eef56d01-48b4-461c-87f3-a957ffda84a9",
+
+"name": "telefono",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "74f48d9a-ecf2-4f9e-bbb1-484d07ec0fee",
+
+"name": "id\_proveedor",
+
+"type": "INT",
+
+"isPrimaryKey": true,
+
+"isOptional": false
+
+},
+
+{
+
+"id": "a1742589-4168-4fd2-9ac3-08d1eabd69d2",
+
+"name": "razon\_social",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "c00033f4-d1b6-4d1a-a62c-4d2e2a622bca",
+
+"name": "email",
+
+"type": "INT",
+
+"position": 0
+
+}
+
+],
+
+"numberOfGroups": 0,
+
+"isSelected": false
+
+},
+
+"measured": {
+
+"width": 240,
+
+"height": 149
+
+},
+
+"selected": false,
+
+"dragging": false
+
+},
+
+{
+
+"id": "497ec7eb-bc68-4cf7-aa8b-14a3741ff313",
+
+"type": "Table",
+
+"position": {
+
+"x": 66.93160402398104,
+
+"y": 281.60676074126366
+
+},
+
+"data": {
+
+"label": "CONSULTA",
+
+"isConnectable": false,
+
+"columns": [
+
+{
+
+"id": "334b761b-9780-49e0-a69c-34b08abb2759",
+
+"name": "nro\_consulta",
+
+"type": "INT",
+
+"isPrimaryKey": true,
+
+"isOptional": false,
+
+"isUnique": false
+
+},
+
+{
+
+"id": "7755b042-d638-43b5-a9b6-ea4e25e8e7af",
+
+"name": "seÃ±ales",
+
+"type": "INT",
+
+"isPrimaryKey": false,
+
+"isUnique": false
+
+},
+
+{
+
+"id": "143f5e27-e156-45f6-a655-58cccb279dbf",
+
+"name": "fk\_MASCOTA",
+
+"type": "None",
+
+"isForeignKey": true,
+
+"foreignKeyProps": {
+
+"foreignKeyGroupId": "43e5e730-1319-41ce-9dec-aa4eb68f236d",
+
+"sourceTableId": "98018d29-c620-4892-955a-993fe8c331a1",
+
+"columns": [
+
+{
+
+"id": "fk\_5c6e28a3-fb0d-482e-831a-7de62d2bd2d6",
+
+"name": "id\_mascota",
+
+"type": "INT"
+
+}
+
+]
+
+},
+
+"isOptional": false,
+
+"isUnique": false
+
+},
+
+{
+
+"id": "0147adf9-3ae5-429e-ab78-d9fa7dbc9343",
+
+"name": "fk\_VETERINARIO",
+
+"type": "None",
+
+"isForeignKey": true,
+
+"foreignKeyProps": {
+
+"foreignKeyGroupId": "2f633b1d-3f68-4489-bf4e-d1d9b03fb5fa",
+
+"sourceTableId": "98499678-71a5-498b-a9d5-019e8bfc576f",
+
+"columns": [
+
+{
+
+"id": "fk\_05184cdd-67e0-4fee-b44b-a03092863cac",
+
+"name": "id\_veterinario",
+
+"type": "INT"
+
+}
+
+]
+
+},
+
+"isOptional": false,
+
+"isUnique": false
+
+},
+
+{
+
+"id": "02ed7064-578e-45df-9732-25109262509f",
+
+"name": "fecha",
+
+"type": "INT",
+
+"position": 0,
+
+"isUnique": false
+
+},
+
+{
+
+"id": "1c2a66da-12c9-4251-ac66-d392b7b787f1",
+
+"name": "hora",
+
+"type": "INT",
+
+"position": 0,
+
+"isUnique": false
+
+}
+
+],
+
+"numberOfGroups": 0,
+
+"isSelected": false
+
+},
+
+"measured": {
+
+"width": 240,
+
+"height": 174
+
+},
+
+"selected": false,
+
+"dragging": false
+
+},
+
+{
+
+"id": "98018d29-c620-4892-955a-993fe8c331a1",
+
+"type": "Table",
+
+"position": {
+
+"x": 374.4313505996324,
+
+"y": 267.14987392040115
+
+},
+
+"data": {
+
+"label": "MASCOTA",
+
+"isConnectable": false,
+
+"columns": [
+
+{
+
+"id": "54d36483-cae1-4c7d-a6aa-471cda15c2b2",
+
+"name": "nombre",
+
+"type": "INT",
+
+"isPrimaryKey": false,
+
+"isOptional": false
+
+},
+
+{
+
+"id": "10e4e4a0-2703-4662-9fe6-3762702b696d",
+
+"name": "peso",
+
+"type": "INT",
+
+"isPrimaryKey": false,
+
+"isOptional": false
+
+},
+
+{
+
+"id": "affb71d2-c6cd-437a-ab78-93a1bf080609",
+
+"name": "edad",
+
+"type": "INT",
+
+"isPrimaryKey": false,
+
+"isOptional": false
+
+},
+
+{
+
+"id": "eebc7c73-f151-4bbe-80ba-98bda5109497",
+
+"name": "raza",
+
+"type": "INT",
+
+"isPrimaryKey": false,
+
+"isOptional": true
+
+},
+
+{
+
+"id": "5c6e28a3-fb0d-482e-831a-7de62d2bd2d6",
+
+"name": "id\_mascota",
+
+"type": "INT",
+
+"isPrimaryKey": true,
+
+"isOptional": false
+
+},
+
+{
+
+"id": "6c9fe8d7-45f6-4998-86dd-67fcc71f111e",
+
+"name": "especie",
+
+"type": "INT",
+
+"position": 0,
+
+"isOptional": false
+
+},
+
+{
+
+"id": "fk\_d2838879-0bc9-4746-abaa-92ae6eb48878",
+
+"name": "fk\_CLIENTE",
+
+"type": "None",
+
+"isForeignKey": true,
+
+"foreignKeyProps": {
+
+"foreignKeyGroupId": "790ed9da-d72f-4764-9c76-37540f51b218",
+
+"sourceTableId": "c40b9747-de49-4347-9b2c-df35965b4cd2",
+
+"columns": [
+
+{
+
+"id": "fk\_1f0c8409-8a7d-4715-b247-ae46ac386183",
+
+"name": "id\_cliente",
+
+"type": "INT"
+
+}
+
+]
+
+}
+
+}
+
+],
+
+"numberOfGroups": 0,
+
+"isSelected": false
+
+},
+
+"measured": {
+
+"width": 240,
+
+"height": 199
+
+},
+
+"selected": false,
+
+"dragging": false
+
+},
+
+{
+
+"id": "4bd2d40e-63a7-4572-8990-b72c0f40974e",
+
+"type": "Table",
+
+"position": {
+
+"x": 372.7523772035509,
+
+"y": -36.34717652050596
+
+},
+
+"data": {
+
+"label": "MEDICAMENTO",
+
+"isConnectable": false,
+
+"columns": [
+
+{
+
+"id": "124ff335-4ca3-452f-9268-95187b523b80",
+
+"name": "id\_medicamento",
+
+"type": "INT",
+
+"isPrimaryKey": true,
+
+"isOptional": false
+
+},
+
+{
+
+"id": "1de77f4b-14b1-4057-9739-6664c196f74b",
+
+"name": "nombre",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "f96b4562-c9aa-4021-afa9-b5ac1cd0c0fd",
+
+"name": "descripcion",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "864bac3c-b934-4712-8d6f-938e152be7fb",
+
+"name": "cantidad",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+}
+
+],
+
+"numberOfGroups": 0,
+
+"isSelected": false
+
+},
+
+"measured": {
+
+"width": 240,
+
+"height": 124
+
+},
+
+"selected": false,
+
+"dragging": false
+
+},
+
+{
+
+"id": "80a26357-7794-45f4-aa00-b9301476f86e",
+
+"type": "Table",
+
+"position": {
+
+"x": 1908.2061578542462,
+
+"y": 395.63566499336423
+
+},
+
+"data": {
+
+"label": "STOCK",
+
+"isConnectable": false,
+
+"columns": [
+
+{
+
+"id": "d8c1b0fb-95b9-483d-ae79-11cca2df3f3e",
+
+"name": "cantidad",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "4160beb0-6ea8-4244-bbe5-f569948e46da",
+
+"name": "faltante",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "fk\_e6be64c6-e39c-440c-8462-4696d115c10b",
+
+"name": "fk\_PRODUCTO",
+
+"type": "None",
+
+"isForeignKey": true,
+
+"foreignKeyProps": {
+
+"foreignKeyGroupId": "34142fb3-5eba-4e11-b271-6792d0352d4e",
+
+"sourceTableId": "34f0851b-cd83-4892-8272-66c3b437cefc",
+
+"columns": [
+
+{
+
+"id": "fk\_9e682f57-740b-4b16-810d-3ed3e51c3f6b",
+
+"name": "id\_producto",
+
+"type": "INT"
+
+}
+
+]
+
+},
+
+"isPrimaryKey": true,
+
+"isOptional": false
+
+}
+
+],
+
+"numberOfGroups": 0,
+
+"isSelected": false
+
+},
+
+"measured": {
+
+"width": 240,
+
+"height": 100
+
+},
+
+"selected": false,
+
+"dragging": false
+
+},
+
+{
+
+"id": "58303ac7-70b4-4ddb-b570-9495a07e9dc7",
+
+"type": "Table",
+
+"position": {
+
+"x": 371.2979841166665,
+
+"y": 636.219462594258
+
+},
+
+"data": {
+
+"label": "ESPECIALIDAD",
+
+"isConnectable": false,
+
+"columns": [
+
+{
+
+"id": "b7133fc4-fb8d-4771-99c4-819302c91163",
+
+"name": "descripcion",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "e3023245-2e80-4d26-afa0-890014c12141",
+
+"name": "tipo",
+
+"type": "INT",
+
+"isPrimaryKey": false
+
+},
+
+{
+
+"id": "23b6455e-56a9-4f15-a60e-3ecc0a674e4c",
+
+"name": "id\_especialidad",
+
+"type": "INT",
+
+"position": 0,
+
+"isPrimaryKey": true,
+
+"isOptional": false
+
+},
+
+{
+
+"id": "03552fca-9e65-4e79-a7ee-a31e60ac2909",
+
+"name": "nombre",
+
+"type": "INT",
+
+"position": 0
+
+}
+
+],
+
+"numberOfGroups": 0,
+
+"isSelected": false
+
+},
+
+"measured": {
+
+"width": 240,
+
+"height": 124
+
+},
+
+"selected": false,
+
+"dragging": false
+
+},
+
+{
+
+"id": "b7e6299b-5bd4-42f4-9e15-b313cd54e1c5",
+
+"type": "Table",
+
+"position": {
+
+"x": 69.21425693715165,
+
+"y": -23.061593568170426
+
+},
 
