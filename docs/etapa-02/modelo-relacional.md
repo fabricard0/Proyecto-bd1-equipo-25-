@@ -1178,9 +1178,490 @@
 
 "position": {
 
-"x": 69.21425693715165,
+"x": 69.21425693715165, 
 
 "y": -23.061593568170426
+
+};
+"data": {
+          "label": "DETALLE_TRATAMIENTO",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "0712e112-8652-4e6d-852a-f352f7a5d9c9",
+              "name": "fk_MEDICAMENTO",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "02a1be56-19e6-4696-b381-b5e6ae816600",
+                "sourceTableId": "4bd2d40e-63a7-4572-8990-b72c0f40974e",
+                "columns": [
+                  {
+                    "id": "fk_124ff335-4ca3-452f-9268-95187b523b80",
+                    "name": "id_medicamento",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "fk_514bc840-4741-43bc-8e4f-419843a9ead0",
+              "name": "fk_TRATAMIENTO",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "3c7d6272-ed7d-4d71-84d5-634302e2a819",
+                "sourceTableId": "056736ee-7728-4f2c-a4b6-7f45b86eb979",
+                "columns": [
+                  {
+                    "id": "fk_5bc774a9-ab01-4499-9e2e-59470f3435bb",
+                    "name": "id_tratamiento",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "ebb555cb-8d58-4ddd-a722-1b915f6b4281",
+              "name": "cantidad",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": false
+            },
+            {
+              "id": "0cbc1666-eebd-4ba7-b730-85c195769bcf",
+              "name": "dosis",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": false
+            },
+            {
+              "id": "2e7bdf7a-d33f-4bbe-9299-1e098a0d9736",
+              "name": "duracion",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 149
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "a46de616-ce2a-409a-a3d4-81530be4bade",
+        "type": "Table",
+        "position": {
+          "x": 1290.1837156846204,
+          "y": 263.0111340659047
+        },
+        "data": {
+          "label": "DETALLE_VENTA",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "9910d35b-9956-4d6b-8987-9aacc400379d",
+              "name": "fk_VENTA",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "bd88ac97-be7d-4aac-a704-814b9e55eb33",
+                "sourceTableId": "03788b16-81da-4ac7-965c-3af3d3477f51",
+                "columns": [
+                  {
+                    "id": "fk_8cd594e0-b862-4641-9007-8363dc39d694",
+                    "name": "id_venta",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "9c8877ac-d717-4c38-a969-b5c1f501ffa0",
+              "name": "fk_PRODUCTO",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "42e10630-ffa2-4b3a-ae29-10ad1d9365df",
+                "sourceTableId": "34f0851b-cd83-4892-8272-66c3b437cefc",
+                "columns": [
+                  {
+                    "id": "fk_9e682f57-740b-4b16-810d-3ed3e51c3f6b",
+                    "name": "id_producto",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "522bc321-4935-4f60-a1b8-88289341f054",
+              "name": "cantidad",
+              "type": "INT",
+              "position": 0
+            },
+            {
+              "id": "b88b0eff-094d-4105-87cf-e6b0e1e9d0f2",
+              "name": "precio_unitario",
+              "type": "INT",
+              "position": 0
+            },
+            {
+              "id": "bfc4efb2-f2ff-49d4-9414-0739d2c4b436",
+              "name": "subtotal",
+              "type": "INT",
+              "position": 0
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 149
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "afe2edd7-0279-49d5-bb39-ca72ff1296a5",
+        "type": "Table",
+        "position": {
+          "x": 1605.0116142017,
+          "y": 143.52099696103633
+        },
+        "data": {
+          "label": "PRODUCTO_PROVEEDOR",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "002ecd00-1cb2-41ab-9b6b-102d63c3d776",
+              "name": "fk_PROVEEDOR",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "1a359cf1-827d-4200-b377-54a9ef333b8e",
+                "sourceTableId": "1bb6e589-1e48-445e-8915-c5b522548ee5",
+                "columns": [
+                  {
+                    "id": "fk_74f48d9a-ecf2-4f9e-bbb1-484d07ec0fee",
+                    "name": "id_proveedor",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "6a53c522-7c40-4ef8-bf79-4194817ed5ea",
+              "name": "fk_PRODUCTO",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "12e692db-8605-45a4-9507-1111557b46fb",
+                "sourceTableId": "34f0851b-cd83-4892-8272-66c3b437cefc",
+                "columns": [
+                  {
+                    "id": "fk_9e682f57-740b-4b16-810d-3ed3e51c3f6b",
+                    "name": "id_producto",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "d0dfb1f5-6d06-462c-9191-e1f0fd8972b8",
+              "name": "precio_compra",
+              "type": "INT",
+              "position": 0
+            },
+            {
+              "id": "6693e2c5-61dd-4de4-acb0-dedea7825732",
+              "name": "cantidad",
+              "type": "INT",
+              "position": 0
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 125
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "c41359bf-56fd-4a7c-9a38-2de00df2e8b0",
+        "type": "Table",
+        "position": {
+          "x": 1173.3515350639143,
+          "y": -36.422989681463065
+        },
+        "data": {
+          "label": "MEDICAMENTO_PROVEEDOR",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "f3cf0174-5a06-46cd-8a3b-87e0b059449e",
+              "name": "fk_MEDICAMENTO",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "74c99f6d-824d-4fce-aa71-1be7f71f77ee",
+                "sourceTableId": "4bd2d40e-63a7-4572-8990-b72c0f40974e",
+                "columns": [
+                  {
+                    "id": "fk_124ff335-4ca3-452f-9268-95187b523b80",
+                    "name": "id_medicamento",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "2ef80d65-2fa4-47fa-b6ed-6ea1aea9e5a9",
+              "name": "fk_PROVEEDOR",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "c9426d75-3a38-440a-b91f-247f7f4faae5",
+                "sourceTableId": "1bb6e589-1e48-445e-8915-c5b522548ee5",
+                "columns": [
+                  {
+                    "id": "fk_74f48d9a-ecf2-4f9e-bbb1-484d07ec0fee",
+                    "name": "id_proveedor",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "0df879dc-16bc-4854-826a-336be0ba0933",
+              "name": "precio_compra",
+              "type": "INT",
+              "position": 0
+            },
+            {
+              "id": "a637104a-6d13-4497-bfed-1cec7cde74a6",
+              "name": "cantidad",
+              "type": "INT",
+              "position": 0
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 125
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "a5e672de-cfab-4d4c-a51c-882b6f045d10",
+        "type": "Table",
+        "position": {
+          "x": 370.3476432412771,
+          "y": 498.47680710020444
+        },
+        "data": {
+          "label": "VETERINARIO_ESPECIALIDAD",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "2a85f04e-8e6d-4830-ba58-749602bbd737",
+              "name": "fk_VETERINARIO",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "e95b193c-b8ca-4b22-a9c6-f123340d3e33",
+                "sourceTableId": "98499678-71a5-498b-a9d5-019e8bfc576f",
+                "columns": [
+                  {
+                    "id": "fk_05184cdd-67e0-4fee-b44b-a03092863cac",
+                    "name": "id_veterinario",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "fk_35302257-5682-4adb-9f4f-f33bda190596",
+              "name": "fk_ESPECIALIDAD",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "cdf9dc4f-74c6-4cc1-9669-9d44693afaba",
+                "sourceTableId": "58303ac7-70b4-4ddb-b570-9495a07e9dc7",
+                "columns": [
+                  {
+                    "id": "fk_23b6455e-56a9-4f15-a60e-3ecc0a674e4c",
+                    "name": "id_especialidad",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "ba6f9d72-5554-4481-8bb4-005c0d989e30",
+              "name": "nombre",
+              "type": "INT",
+              "position": 0
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 124
+        },
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "98018d29-c620-4892-955a-993fe8c331a1->497ec7eb-bc68-4cf7-aa8b-14a3741ff313_43e5e730-1319-41ce-9dec-aa4eb68f236d",
+        "type": "Relational",
+        "source": "98018d29-c620-4892-955a-993fe8c331a1",
+        "targetHandle": "foreign-key-handle-43e5e730-1319-41ce-9dec-aa4eb68f236d",
+        "target": "497ec7eb-bc68-4cf7-aa8b-14a3741ff313",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "43e5e730-1319-41ce-9dec-aa4eb68f236d",
+            "sourceTableId": "98018d29-c620-4892-955a-993fe8c331a1",
+            "columns": [
+              {
+                "id": "fk_5c6e28a3-fb0d-482e-831a-7de62d2bd2d6",
+                "name": "id_mascota",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "98499678-71a5-498b-a9d5-019e8bfc576f->497ec7eb-bc68-4cf7-aa8b-14a3741ff313_2f633b1d-3f68-4489-bf4e-d1d9b03fb5fa",
+        "type": "Relational",
+        "source": "98499678-71a5-498b-a9d5-019e8bfc576f",
+        "targetHandle": "foreign-key-handle-2f633b1d-3f68-4489-bf4e-d1d9b03fb5fa",
+        "target": "497ec7eb-bc68-4cf7-aa8b-14a3741ff313",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "2f633b1d-3f68-4489-bf4e-d1d9b03fb5fa",
+            "sourceTableId": "98499678-71a5-498b-a9d5-019e8bfc576f",
+            "columns": [
+              {
+                "id": "fk_05184cdd-67e0-4fee-b44b-a03092863cac",
+                "name": "id_veterinario",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "4bd2d40e-63a7-4572-8990-b72c0f40974e->b7e6299b-5bd4-42f4-9e15-b313cd54e1c5_02a1be56-19e6-4696-b381-b5e6ae816600",
+        "type": "Relational",
+        "source": "4bd2d40e-63a7-4572-8990-b72c0f40974e",
+        "targetHandle": "foreign-key-handle-02a1be56-19e6-4696-b381-b5e6ae816600",
+        "target": "b7e6299b-5bd4-42f4-9e15-b313cd54e1c5",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "02a1be56-19e6-4696-b381-b5e6ae816600",
+            "sourceTableId": "4bd2d40e-63a7-4572-8990-b72c0f40974e",
+            "columns": [
+              {
+                "id": "fk_124ff335-4ca3-452f-9268-95187b523b80",
+                "name": "id_medicamento",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "03788b16-81da-4ac7-965c-3af3d3477f51->a46de616-ce2a-409a-a3d4-81530be4bade_bd88ac97-be7d-4aac-a704-814b9e55eb33",
+        "type": "Relational",
+        "source": "03788b16-81da-4ac7-965c-3af3d3477f51",
+        "targetHandle": "foreign-key-handle-bd88ac97-be7d-4aac-a704-814b9e55eb33",
+        "target": "a46de616-ce2a-409a-a3d4-81530be4bade",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "bd88ac97-be7d-4aac-a704-814b9e55eb33",
+            "sourceTableId": "03788b16-81da-4ac7-965c-3af3d3477f51",
+            "columns": [
+              {
+                "id": "fk_8cd594e0-b862-4641-9007-8363dc39d694",
+                "name": "id_venta",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "34f0851b-cd83-4892-8272-66c3b437cefc->a46de616-ce2a-409a-a3d4-81530be4bade_42e10630-ffa2-4b3a-ae29-10ad1d9365df",
+        "type": "Relational",
+        "source": "34f0851b-cd83-4892-8272-66c3b437cefc",
+        "targetHandle": "foreign-key-handle-42e10630-ffa2-4b3a-ae29-10ad1d9365df",
+        "target": "a46de616-ce2a-409a-a3d4-81530be4bade",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "42e10630-ffa2-4b3a-ae29-10ad1d9365df",
+            "sourceTableId": "34f0851b-cd83-4892-8272-66c3b437cefc",
+            "columns": [
+              {
+                "id": "fk_9e682f57-740b-4b16-810d-3ed3e51c3f6b",
+                "name": "id_producto",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
 
 },
 
