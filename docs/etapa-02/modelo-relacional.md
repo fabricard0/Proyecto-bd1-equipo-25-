@@ -116,7 +116,8 @@
         "measured": {
           "width": 240,
           "height": 173
-        },
+        }
+        ,
         "selected": false,
         "dragging": false
       },
