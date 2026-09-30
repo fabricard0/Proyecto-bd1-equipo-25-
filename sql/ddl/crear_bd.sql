@@ -79,17 +79,3 @@ CREATE TABLE PRODUCTO (
     CONSTRAINT chk_producto_precio CHECK (precio >= 0)
 );
 GO
-
-CREATE TABLE MASCOTA (
-    id_mascota INT IDENTITY(1,1),
-    nombre VARCHAR(50) NOT NULL,
-    especie VARCHAR(50) NOT NULL,
-    raza VARCHAR(50) NULL,
-    edad INT NULL,
-    peso DECIMAL(5,2) NULL,
-    id_cliente INT NOT NULL,
-    CONSTRAINT pk_mascota PRIMARY KEY (id_mascota),
-    CONSTRAINT fk_mascota_cliente FOREIGN KEY (id_cliente) 
-        REFERENCES CLIENTE(id_cliente)
-);
-GO
