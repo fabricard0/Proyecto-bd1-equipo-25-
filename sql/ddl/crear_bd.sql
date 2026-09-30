@@ -23,3 +23,14 @@ CREATE TABLE CLIENTE(
     email VARCHAR(50) NOT NULL,
     CONSTRAINT uq_cliente_email UNIQUE(email)
 );
+
+CREATE TABLE VETERINARIO(
+    id_veterinario INT IDENTITY (1,1) PRIMARY KEY,
+    apellido VARCHAR(50) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    direccion VARCHAR(50) NOT NULL,
+    telefono VARCHAR (20) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    CONSTRAINT uq_veterinario_telefono UNIQUE(telefono),
+    CONSTRAINT uq_veterinario_email UNIQUE(email)
+);
