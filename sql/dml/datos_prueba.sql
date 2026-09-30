@@ -86,3 +86,15 @@ VALUES
 ('Rascador para Gatos Multinivel','Accesorios',24500.00);
 
 --SELECT * FROM PRODUCTO;
+INSERT INTO MASCOTA(nombre,especie,raza,edad,peso,id_cliente)
+VALUES
+('Max','Perro','Labrador',4,28.50,1),
+('Luna','Gato','Siames',2,3.80,2),
+('Rocco','Perro','Caniche',6,6.20,3),
+('Mimi','Gato','Mestizo',1,2.90,4),
+('Thor','Perro','Ovejero Aleman',3,32.00,5),
+('Lola','Perro','Golden Retriever',5,26.00,6),
+('Felix','Gato','Persa',4,4.10,7),
+('Boby','Perro','Boxer',2,22.40,8);
+
+--SELECT * FROM MASCOTA;
