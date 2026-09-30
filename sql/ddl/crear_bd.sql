@@ -90,6 +90,6 @@ CREATE TABLE MASCOTA (
     id_cliente INT NOT NULL,
     CONSTRAINT pk_mascota PRIMARY KEY (id_mascota),
     CONSTRAINT fk_mascota_cliente FOREIGN KEY (id_cliente) 
-        REFERENCES CLIENTE(id_cliente)
+     REFERENCES CLIENTE(id_cliente)
 );
 GO
