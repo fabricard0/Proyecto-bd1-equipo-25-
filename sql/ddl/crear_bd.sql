@@ -51,3 +51,45 @@ CREATE TABLE MEDICAMENTO(
     CONSTRAINT ck_medicamento_tipo CHECK (tipo IN ('Comprimido','Inyectable','Crema','Solucion')),
     CONSTRAINT ck_medicamento_cantidad CHECK (cantidad > 0)
 );
+
+CREATE TABLE METODO_PAGO (
+    id_metodo_pago INT IDENTITY(1,1),
+    tipo_nombre VARCHAR(50) NOT NULL,
+    CONSTRAINT pk_metodo_pago PRIMARY KEY (id_metodo_pago)
+);
+GO
+
+CREATE TABLE PROVEEDOR (
+    id_proveedor INT IDENTITY(1,1),
+    razon_social VARCHAR(100) NOT NULL,
+    direccion VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    CONSTRAINT pk_proveedor PRIMARY KEY (id_proveedor),
+    CONSTRAINT uq_proveedor_email UNIQUE (email)
+);
+GO
+
+CREATE TABLE PRODUCTO (
+    id_producto INT IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
+    precio DECIMAL(10,2) NOT NULL,
+    CONSTRAINT pk_producto PRIMARY KEY (id_producto),
+    CONSTRAINT chk_producto_precio CHECK (precio >= 0)
+);
+GO
+
+CREATE TABLE MASCOTA (
+    id_mascota INT IDENTITY(1,1),
+    nombre VARCHAR(50) NOT NULL,
+    especie VARCHAR(50) NOT NULL,
+    raza VARCHAR(50) NULL,
+    edad INT NULL,
+    peso DECIMAL(5,2) NULL,
+    id_cliente INT NOT NULL,
+    CONSTRAINT pk_mascota PRIMARY KEY (id_mascota),
+    CONSTRAINT fk_mascota_cliente FOREIGN KEY (id_cliente) 
+        REFERENCES CLIENTE(id_cliente)
+);
+GO
