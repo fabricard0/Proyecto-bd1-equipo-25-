@@ -60,3 +60,16 @@ VALUES
 ('Transferencia Mercado Pago');
 
 --SELECT * FROM METODO_PAGO;
+
+INSERT INTO PROVEEDOR(razon_social,direccion,telefono,email)
+VALUES
+('Distribuidora Veterinaria del Litoral','Av. 3 de Abril 1200','3794112233','contacto@distrilitoral.com'),
+('Insumos Mascotas S.A.','Calle Pellegrini 850','3794445566','ventas@insumosmascotas.com'),
+('PharmaVet Argentina','Av. Gobernador Ruiz 2100','3794778899','pedidos@pharmavet.com'),
+('Laboratorios Zoovet','Calle Córdoba 430','3794551122','ventas@zoovet.com'),
+('Nutricion Animal Corrientes','Av. Maipú 3100','3794883344','contacto@nutricionanimal.com'),
+('Distribuidora San Martin','Calle San Martin 1540','3794226677','info@distrisanmartin.com'),
+('Insumos Sanitarios Veterinaria','Av. Italia 620','3794991100','pedidos@insumosvet.com'),
+('Global Pharma Vet','Calle Bolivar 980','3794337788','ventas@globalpharmavet.com');
+
+--SELECT * FROM PROVEEDOR;
