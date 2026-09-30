@@ -73,3 +73,16 @@ VALUES
 ('Global Pharma Vet','Calle Bolivar 980','3794337788','ventas@globalpharmavet.com');
 
 --SELECT * FROM PROVEEDOR;
+
+INSERT INTO PRODUCTO(nombre,categoria,precio)
+VALUES
+('Alimento Balanceado Perro Adulto 15kg','Alimentos',35000.00),
+('Alimento Balanceado Gato Cachorro 3kg','Alimentos',12500.00),
+('Shampoo Antiparasitario 500ml','Higiene',4500.00),
+('Collar Antipulgas Perro Mediano','Accesorios',8200.00),
+('Juguete Hueso de Goma','Accesorios',2500.00),
+('Pipeta Antipulgas Perro Grande','Farmacia',6800.00),
+('Comedero Acero Inoxidable 1L','Accesorios',3800.00),
+('Rascador para Gatos Multinivel','Accesorios',24500.00);
+
+--SELECT * FROM PRODUCTO;
