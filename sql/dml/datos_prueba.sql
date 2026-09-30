@@ -51,3 +51,12 @@ VALUES
 ('Dexametasona', 'Antiinflamatorio corticosteroide', 1, 'Inyectable');
 
 --SELECT * FROM MEDICAMENTO;
+
+INSERT INTO METODO_PAGO(tipo_nombre)
+VALUES
+('Efectivo'),
+('Tarjeta de Debito'),
+('Tarjeta de Credito'),
+('Transferencia Mercado Pago');
+
+--SELECT * FROM METODO_PAGO;
