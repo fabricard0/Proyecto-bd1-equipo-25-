@@ -42,3 +42,12 @@ CREATE TABLE ESPECIALIDAD(
     categoria VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE MEDICAMENTO(
+    id_medicamento INT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    descripcion VARCHAR(100) NOT NULL,
+    cantidad INT NOT NULL,
+    tipo VARCHAR(20) NOT NULL,
+    CONSTRAINT ck_medicamento_tipo CHECK (tipo IN ('Comprimido','Inyectable','Crema','Solucion')),
+    CONSTRAINT ck_medicamento_cantidad CHECK (cantidad > 0)
+);
