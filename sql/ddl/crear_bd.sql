@@ -116,7 +116,10 @@ CREATE TABLE TRATAMIENTO(
     descripcion VARCHAR(50) NOT NULL,
     tipo_tratamiento VARCHAR(50) NOT NULL,
     sintomas VARCHAR(50) NOT NULL, 
-    duracion_tratamiento VARCHAR(20) NULL,
+    duracion_tratamiento VARCHAR(20) 
+          CONSTRAINT df_tratamiento_duracion DEFAULT 'Indefinido',
+    
+    nro_consulta INT NOT NULL, 
 
   CONSTRAINT fk_tratamiento_consulta 
         FOREIGN KEY (nro_consulta)
@@ -124,9 +127,6 @@ CREATE TABLE TRATAMIENTO(
 
   CONSTRAINT ck_tratamiento_nro_consulta 
         CHECK (nro_consulta > 0)
-
-  CONSTRAINT df_tratamiento_duracion DEFAULT 'Indefinido',
-        nro_consulta INT NOT NULL, 
 );
 
 CREATE TABLE VENTA(
