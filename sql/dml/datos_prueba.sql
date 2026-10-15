@@ -33,7 +33,7 @@ VALUES
 ('Traumatologia', 'Tratamiento de lesiones y enfermedades del sistema musculoesqueletico', 'Quirurgica'),
 ('Etologia', 'Evaluacion y tratamiento de problemas de comportamiento animal', 'Clinica'),
 ('Dermatologia', 'Diagnostico y tratamiento de enfermedades de la piel', 'Clinica'),
-('Medicina Interna', 'Diagnostico y tratamiento integral de enfermedades internas', 'Clinica');
+('Medicina Interna', 'Diagnostico y tratamiento integral de enfermedades internas', 'Clinica')
 ('Oftalmologia', 'Diagnostico y tratamiento de enfermedades oculares en animales', 'Clinica'),
 ('Cardiologia', 'Diagnostico y tratamiento de enfermedades del corazon y sistema circulatorio', 'Clinica');
 
