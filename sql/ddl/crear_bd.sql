@@ -162,7 +162,7 @@ CREATE TABLE DETALLE_VENTA(
 
    CONSTRAINT ck_detalle_venta_cantidad CHECK(cantidad > 0),
    CONSTRAINT ck_detalle_venta_precio CHECK(precio_unitario > 0),
-   CONSTRAINT ck_detalle_venta_subtotal CHECK(subtotal > 0),
+   CONSTRAINT ck_detalle_venta_subtotal CHECK(subtotal > 0)
 );
 
 CREATE TABLE DETALLE_TRATAMIENTO (
