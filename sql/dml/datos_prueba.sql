@@ -125,14 +125,6 @@ VALUES
    ('Tratamiento gastrico', 'Gastrointestinal', 'Vomitos y falta de apetito', '05:00:00', 6),
    ('Tratamiento antiinflamatorio', 'Antiinflamatorio', 'Dolor e inflamacion', '07:00:00', 7);
 
-
-INSERT INTO TRATAMIENTO
-(descripcion, tipo_tratamiento, sintomas, nro_consulta)
-VALUES
-    ('Tratamiento de rehidratacion', 'Hidratacion', 'Deshidratacion y debilidad',8),
-    ('Tratamiento para infeccion cutanea', 'Topico', 'Heridas y enrojecimiento',3),
-    ('Tratamiento contra hongos', 'Antifungico', 'Picazon y lesiones en la piel',2);
-
 INSERT INTO VENTA
 (descripcion, fecha_hora, monto, id_cliente, id_metodo_pago)
 VALUES
