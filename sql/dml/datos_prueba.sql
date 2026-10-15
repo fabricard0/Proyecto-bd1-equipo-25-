@@ -119,11 +119,19 @@ VALUES
 INSERT INTO TRATAMIENTO
 (descripcion, tipo_tratamiento, sintomas, duracion_tratamiento, nro_consulta)
 VALUES
-   ('Tratamiento para infeccion bacteriana', 'Antibiotico', 'Fiebre y secrecion nasal', '07:00:00', 1),
+   ('Tratamiento para infeccion bacteriana', 'Antibiotico', 'Fiebre y secrecion nasal', '07:00:00', 9),
    ('Tratamiento para infeccion urinaria', 'Antibiotico', 'Dolor y dificultad al orinar', '07:00:00', 4),
    ('Tratamiento antiparasitario', 'Antiparasitario', 'Parasitos y perdida de peso', '03:00:00', 5),
    ('Tratamiento gastrico', 'Gastrointestinal', 'Vomitos y falta de apetito', '05:00:00', 6),
    ('Tratamiento antiinflamatorio', 'Antiinflamatorio', 'Dolor e inflamacion', '07:00:00', 7);
+
+INSERT INTO TRATAMIENTO
+(descripcion, tipo_tratamiento, sintomas, nro_consulta)
+VALUES
+    ('Tratamiento de rehidratacion', 'Hidratacion', 'Deshidratacion y debilidad',8),
+    ('Tratamiento para infeccion cutanea', 'Topico', 'Heridas y enrojecimiento',3),
+    ('Tratamiento contra hongos', 'Antifungico', 'Picazon y lesiones en la piel',2);
+
 
 INSERT INTO VENTA
 (descripcion, fecha_hora, monto, id_cliente, id_metodo_pago)
