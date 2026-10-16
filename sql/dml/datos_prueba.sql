@@ -101,7 +101,57 @@ VALUES
 
 --SELECT * FROM MASCOTA;
 
+INSERT INTO VETERINARIO_ESPECIALIDAD(id_veterinario,id_especialidad)
+VALUES
+(1,1),
+(1,5),
+(2,2),
+(2,4),
+(3,1),
+(4,3),
+(5,5),
+(6,6);
 
+--SELECT * FROM VETERINARIO_ESPECIALIDAD;
+
+INSERT INTO MEDICAMENTO_PROVEEDOR(id_medicamento,id_proveedor)
+VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,1),
+(5,2),
+(6,3),
+(7,1),
+(8,2);
+
+--SELECT * FROM MEDICAMENTO_PROVEEDOR;
+
+INSERT INTO PRODUCTO_PROVEEDOR(id_producto,id_proveedor)
+VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,1),
+(5,2),
+(6,3),
+(7,1),
+(8,2);
+
+--SELECT * FROM PRODUCTO_PROVEEDOR;
+
+INSERT INTO STOCK(id_producto,cantidad)
+VALUES
+(1,25),
+(2,18),
+(3,12),
+(4,20),
+(5,30),
+(6,15),
+(7,8),
+(8,22);
+
+--SELECT * FROM STOCK;
 --
 
 INSERT INTO CONSULTA
