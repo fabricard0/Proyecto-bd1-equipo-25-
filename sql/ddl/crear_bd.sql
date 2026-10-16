@@ -94,6 +94,52 @@ CREATE TABLE MASCOTA (
 );
 GO
 
+CREATE TABLE VETERINARIO_ESPECIALIDAD(
+    id_veterinario INT NOT NULL,
+    id_especialidad INT NOT NULL,
+    CONSTRAINT pk_veterinario_especialidad 
+        PRIMARY KEY (id_veterinario, id_especialidad),
+    CONSTRAINT fk_ve_veterinario 
+        FOREIGN KEY (id_veterinario) REFERENCES VETERINARIO(id_veterinario),
+    CONSTRAINT fk_ve_especialidad 
+        FOREIGN KEY (id_especialidad) REFERENCES ESPECIALIDAD(id_especialidad)
+);
+GO
+
+CREATE TABLE MEDICAMENTO_PROVEEDOR(
+    id_medicamento INT NOT NULL,
+    id_proveedor INT NOT NULL,
+    CONSTRAINT pk_medicamento_proveedor 
+        PRIMARY KEY (id_medicamento, id_proveedor),
+    CONSTRAINT fk_mp_medicamento 
+        FOREIGN KEY (id_medicamento) REFERENCES MEDICAMENTO(id_medicamento),
+    CONSTRAINT fk_mp_proveedor 
+        FOREIGN KEY (id_proveedor) REFERENCES PROVEEDOR(id_proveedor)
+);
+GO
+
+CREATE TABLE PRODUCTO_PROVEEDOR(
+    id_producto INT NOT NULL,
+    id_proveedor INT NOT NULL,
+    CONSTRAINT pk_producto_proveedor 
+        PRIMARY KEY (id_producto, id_proveedor),
+    CONSTRAINT fk_pp_producto 
+        FOREIGN KEY (id_producto) REFERENCES PRODUCTO(id_producto),
+    CONSTRAINT fk_pp_proveedor 
+        FOREIGN KEY (id_proveedor) REFERENCES PROVEEDOR(id_proveedor)
+);
+GO
+
+CREATE TABLE STOCK(
+    id_stock INT IDENTITY(1,1),
+    id_producto INT NOT NULL,
+    cantidad INT NOT NULL,
+    CONSTRAINT pk_stock PRIMARY KEY (id_stock),
+    CONSTRAINT fk_stock_producto 
+        FOREIGN KEY (id_producto) REFERENCES PRODUCTO(id_producto),
+    CONSTRAINT chk_stock_cantidad CHECK (cantidad >= 0)
+);
+GO
 ---
 
 CREATE TABLE CONSULTA(
