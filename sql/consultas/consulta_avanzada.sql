@@ -1,4 +1,4 @@
--- Consulta de negocio avanzada | Productos vendidos mas de 10 unidades:
+-- Consulta de negocio avanzada (4 casos)| Productos vendidos mas de 10 unidades:
 
 SELECT
     p.nombre AS Producto,
