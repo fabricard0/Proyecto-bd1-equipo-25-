@@ -1,5 +1,5 @@
 
-
+-- Informe de total de ventas realizadas por cada categoria de producto en un intervalo de fechas (incluido las unidades que se vendieron de cada producto por categoria)
 SELECT
     P.categoria,
     SUM(DV.cantidad) AS unidades_vendidas,
