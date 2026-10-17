@@ -16,3 +16,20 @@ JOIN METODO_PAGO
 JOIN DETALLE_VENTA 
     ON VENTA.id_venta = DETALLE_VENTA.id_venta
 WHERE VENTA.id_venta = 1;
+
+UNION ALL
+
+SELECT 
+    VENTA.id_venta AS [Nro Factura],
+    NULL AS [Fecha],
+    NULL AS [Cliente],
+    'TOTAL FACTURA' AS [Metodo Pago],
+    NULL AS [Codigo Producto],
+    SUM(DETALLE_VENTA.cantidad) AS [Cantidad],
+    NULL AS [Precio Unitario],
+    SUM(DETALLE_VENTA.cantidad * DETALLE_VENTA.precio_unitario) AS [Subtotal Renglon]
+FROM VENTA
+JOIN DETALLE_VENTA 
+    ON VENTA.id_venta = DETALLE_VENTA.id_venta
+WHERE VENTA.id_venta = 1
+GROUP BY VENTA.id_venta;
