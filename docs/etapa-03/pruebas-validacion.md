@@ -1,35 +1,31 @@
+# Pruebas y validación de la implementación física
 
-### `pruebas-validacion.md`
+**Etapa:** III
 
-```md
-# Informe de pruebas y validación
+**Fecha de validación:** 2026-09-30
 
-Se realizaron pruebas sobre las restricciones definidas en la base de datos con el objetivo de comprobar que las reglas establecidas sean respetadas por SQL Server.
 
-## 1. Validación de claves
 
-Se verificó que las claves primarias permitan identificar los registros de forma única y que las claves foráneas solamente permitan establecer relaciones con registros existentes.
+Las pruebas se orientaron a verificar el registro de clientes, mascotas, veterinarios, consultas, tratamientos, productos, medicamentos, ventas y proveedores, las restricciones que fuimos agregando al DDL y de también verificar las reglas de negocio con las que cuenta nuestra base de datos.
 
-Por ejemplo, no debe ser posible insertar una `MASCOTA` utilizando un `id_cliente` que no exista en la tabla `CLIENTE`.
+## Pruebas ejecutadas
 
-También se validaron las claves compuestas utilizadas en `DETALLE_VENTA`, `DETALLE_TRATAMIENTO` y en las tablas intermedias.
+| **Prueba**                                                                                   | **Resultado**                                                                                                      |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Creación de las tablas y carga de datos de prueba en SQL Server                              | Aprobado: las tablas se crearon correctamente y los datos de prueba se cargaron en el sistema.                     |
+| Asociacion entre clientes y mascotas                                             | Aprobado: las mascotas están asociadas a clientes registrados.                                                     |
+| Asociación entre tratamientos y consultas veterinarias                                       | Aprobado: los tratamientos están asociados a las consultas correspondientes.                                       |
+| Asociacion entre ventas y clientes                                               | Aprobado: las ventas están asociadas a clientes registrados.                                                       |
+| Consistencia entre el subtotal de cada detalle de venta y la cantidad por el precio unitario | Aprobado: los subtotales coinciden con los importes calculados a partir de las cantidades y los precios unitarios. |
+| Consistencia entre el importe total de una venta y la suma de sus detalles                   | Aprobado: los importes totales coinciden con la suma de los subtotales de los productos vendidos.                  |
+| Rechazo de un precio de venta menor o igual a cero                                           | Aprobado: la restricción correspondiente impide registrar precios inválidos.                                       |
+| Rechazo de una cantidad de stock negativa                                                    | Aprobado: la restricción `CHECK` impide registrar cantidades negativas.                                            |
 
-## 2. Validación de restricciones
+## Conclusión
 
-Se probaron las restricciones `UNIQUE` intentando ingresar valores duplicados en atributos como `email`.
+Las pruebas de validación permitieron comprobar la estructura de la base de datos y el cumplimiento de las reglas de negocio relacionadas con el registro de clientes, mascotas, consultas, tratamientos, productos, medicamentos, ventas y proveedores.
+Asimismo, se verificaron las relaciones entre las entidades y las restricciones destinadas a mantener la integridad y consistencia de los datos, incluyendo el cálculo de subtotales y totales de venta y el control de precios y cantidades de stock.
 
-También se verificaron las restricciones `CHECK`. Por ejemplo, un medicamento con un tipo diferente de los valores permitidos debe ser rechazado.
 
-Algunos valores que deben ser rechazados son:
-
-```sql
--- Tipo de medicamento no permitido
-'Jarabe'
-
--- Cantidad de medicamento inválida
-0
-
--- Precio de producto inválido
--100
 
 
