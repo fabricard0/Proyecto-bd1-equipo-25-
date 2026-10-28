@@ -1,20 +1,27 @@
-Reglas de negocio:
+# Reglas de negocio
 
-➢	RN.01: Se aceptarán todos los medios de pago, si se paga en efectivo habrá un 10% de descuento y si se abona con mercado pago o tarjetas de crédito habrá un 15% de recargo en el total de lo abonado.
+- **RN.01:** El sistema permitirá registrar los pagos realizados mediante los medios de pago habilitados, sin aplicar descuentos ni recargos según el medio de pago utilizado.
 
-➢	RN.02: Cada compra debe detallar todos los productos de forma unitaria.
+- **RN.02:** Cada venta deberá registrar los productos adquiridos mediante un detalle que indique el producto, la cantidad de unidades, el precio unitario y el subtotal correspondiente.
 
-➢	RN.03: Serán clientes aquellos los que realicen compras o dejen sus mascotas para atención médica.
+- **RN.03:** Toda persona que realice una compra o solicite atención veterinaria para su mascota deberá estar registrada como cliente en el sistema.
 
-➢	RN.04: Todo producto que ingrese en la veterinaria debe ser registrado en el sistema.
+- **RN.04:** Todo producto que ingrese a la veterinaria deberá registrarse en el sistema antes de incorporarse al stock disponible para su comercialización.
 
-➢	RN.05: Cada Mascota que ingrese a la veterinaria pertenece a un único dueño.
+- **RN.05:** Cada mascota registrada en el sistema deberá estar asociada a un único cliente, quien será identificado como su dueño. Un cliente podrá tener una o varias mascotas registradas.
 
-➢	RN.06: El precio de venta de cada producto siempre será mayor a 0.
+- **RN.06:** El precio de venta de cada producto deberá ser mayor que cero.
 
-➢	RN.07: Las atenciones que se realicen deben ser registradas en el historial médico de cada mascota.
+- **RN.07:** Toda atención veterinaria realizada deberá registrarse en el sistema y quedar asociada a la mascota correspondiente, a fin de mantener actualizado su historial médico.
 
-➢	Rn.08: Un cliente puede comprar varios productos o realizar varios tratamientos. Sin embargo, un producto solo puede pertenecer a un cliente al igual que un tratamiento.
+- **RN.08:** Un cliente podrá realizar múltiples compras y cada venta podrá incluir uno o varios productos. Un mismo producto podrá formar parte de diferentes ventas.
 
-➢	RN.09: Se reciben productos únicamente de los proveedores que estén registrados en el sistema.
+- **RN.09:** Cada tratamiento registrado deberá estar asociado a una atención veterinaria correspondiente. Una mascota podrá recibir múltiples tratamientos a lo largo del tiempo.
+
+- **RN.10:** La veterinaria únicamente podrá recibir productos de proveedores previamente registrados en el sistema.
+
+- **RN.11:** La cantidad disponible de cada producto en stock no podrá ser negativa.
+
+- **RN.12:** Cada venta deberá estar asociada a un cliente registrado y contener al menos un detalle de venta con los productos adquiridos.
+
 
