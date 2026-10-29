@@ -12,11 +12,6 @@ ON VENTA(fecha_hora);
 GO
 
 -- Se crea un indice para buscar una mascota en concreta segun su ID
-CREATE NONCLUSTERED INDEX IX_Consulta_Mascota 
-ON CONSULTA(id_mascota);
-GO
-
-
 CREATE NONCLUSTERED INDEX IX_Mascota_IdMascota
 ON MASCOTA(id_mascota);
 GO
