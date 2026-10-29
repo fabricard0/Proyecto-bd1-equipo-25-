@@ -25,7 +25,7 @@ Los casos de prueba están incluidos en el mismo script SQL, después de las ope
 - Facilita la recuperación de los datos cuando una operación no se completa correctamente.
 - Permite comprobar el funcionamiento de las transacciones mediante los casos de prueba incluidos.
 
-Todas estas funciones se encuentran en el siguiente archivo: [ scripts_transaccion.sql ](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/transacciones/scripts_transaccion.sql)
+Todas estas funciones se encuentran en el siguiente archivo: [ scripts_transaccion.sql](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/triggers-auditoria/scripts-triggers.sql)
 
 
 [Ver script de transacciones en GitHub](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/transacciones/scripts_transaccion.sql)
