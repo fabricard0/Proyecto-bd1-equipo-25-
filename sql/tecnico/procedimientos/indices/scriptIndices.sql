@@ -15,3 +15,8 @@ GO
 CREATE NONCLUSTERED INDEX IX_Consulta_Mascota 
 ON CONSULTA(id_mascota);
 GO
+
+
+CREATE NONCLUSTERED INDEX IX_Mascota_IdMascota
+ON MASCOTA(id_mascota);
+GO
