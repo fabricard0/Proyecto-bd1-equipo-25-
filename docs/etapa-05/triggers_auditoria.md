@@ -25,7 +25,4 @@ Los casos de prueba están incluidos en el mismo script SQL y permiten verificar
 - Facilita el seguimiento de las modificaciones y eliminaciones realizadas.
 - Permite comprobar el funcionamiento de los triggers mediante los casos de prueba incluidos.
 
-Todas estas funciones se encuentran en la carpeta [triggers-auditoria](sql/tecnico/procedimientos/triggers-auditoria).
-
-
-
+Todas estas funciones se encuentran en la carpeta [triggers-auditoria](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/tree/main/sql/tecnico/procedimientos/triggers-auditoria).
