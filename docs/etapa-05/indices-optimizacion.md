@@ -22,7 +22,7 @@ GO
 CREATE TABLE VENTA_TEST (
     id_venta INT IDENTITY(1,1) PRIMARY KEY,
     fecha_hora DATETIME,
-    total DECIMAL(10,2) //almacena maximo un numero de 10 digitos con 2 decimales
+    total DECIMAL(10,2) --almacena maximo un numero de 10 digitos con 2 decimales
 );
 GO
 
