@@ -19,3 +19,12 @@ Es un indice que permite buscar a traves de un intervalo de 2 fechas, una venta 
 FROM VENTA 
 WHERE fecha_hora >= '2026-09-08' AND fecha_hora < '2026-09-11'; "
 
+### 3. Indice IX_Venta_Fecha
+
+
+
+### 4. Indice 
+
+
+
+
