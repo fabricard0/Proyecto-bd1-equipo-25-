@@ -11,3 +11,5 @@ Los casos de prueba están incluidos en el mismo script `scripts-transaccion.sql
 - Permite mantener la información consistente cuando se realizan varias operaciones relacionadas.
 - Evita que queden cambios guardados si ocurre un error durante una transacción.
 - Facilita la comprobación del funcionamiento de las transacciones mediante los casos de prueba incluidos.
+
+Todas estas funciones de encuentran en: 
