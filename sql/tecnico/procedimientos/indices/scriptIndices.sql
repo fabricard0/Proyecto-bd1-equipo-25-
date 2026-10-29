@@ -1,9 +1,9 @@
 USE VETERINARIA;
 GO
 
--- Se crea un indice para buscar el nombre de una mascota por su nombre
-CREATE NONCLUSTERED INDEX IX_Mascota_Nombre 
-ON MASCOTA(nombre);
+-- Índice para optimizar la búsqueda de consultas o historiales médicos por fecha
+CREATE NONCLUSTERED INDEX IX_Consulta_Fecha 
+ON CONSULTA(fecha); 
 GO
 
 -- Se crea un indce para ver una venta en un intervalo de 2 fechas
