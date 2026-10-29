@@ -1,6 +1,6 @@
 # Transacciones
 
-En este archivo se encuentran los casos 7, 8 y 9, en los que se trabaja con transacciones en SQL Server. Se realizan operaciones de inserción, actualización y eliminación de datos, utilizando transacciones simples y anidadas para comprobar que los cambios se realicen correctamente.
+En este archivo se encuentran los casos que se trabaja con transacciones en SQL Server. Se realizan operaciones de inserción, actualización y eliminación de datos, utilizando transacciones simples y anidadas para comprobar que los cambios se realicen correctamente.
 
 ### Casos implementados
 
