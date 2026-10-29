@@ -32,3 +32,4 @@ Todas estas funciones se encuentran en la carpeta [transacciones](sql/tecnico/pr
 
 
 
+
