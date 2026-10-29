@@ -15,3 +15,8 @@ GO
 CREATE NONCLUSTERED INDEX IX_Mascota_IdMascota
 ON MASCOTA(id_mascota);
 GO
+
+-- Se crea un indice para buscar en detalle el id de una venta 
+CREATE NONCLUSTERED INDEX IX_Detalle_venta_idVenta
+ON DETALLE_VENTA(id_venta);
+GO
