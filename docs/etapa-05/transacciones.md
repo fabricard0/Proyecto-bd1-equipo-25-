@@ -1,24 +1,13 @@
-## Transacciones
+# Transacciones
 
-Para esta etapa se implementaron transacciones para garantizar que las operaciones relacionadas con las ventas y el control de stock se realicen correctamente. De esta manera, si ocurre un error durante una operación, se pueden deshacer los cambios realizados y mantener la información de la base de datos consistente.
+En este archivo se encuentran los casos 7, 8 y 9, donde se trabaja con transacciones en SQL Server. Se realizan operaciones de inserción, actualización y eliminación de datos, utilizando transacciones simples y anidadas para comprobar que los cambios se realicen correctamente.
 
-### 7. Registro de una venta
+También se incluye un caso de prueba que genera un error de manera intencional para verificar que, ante un problema, se deshagan los cambios realizados y no queden datos guardados de forma incompleta.
 
-Se implementó una transacción que permite registrar una venta junto con sus respectivos detalles y actualizar el stock de los productos vendidos.
+Los casos de prueba están incluidos en el mismo script `scripts-transaccion.sql`, después de las operaciones correspondientes, para comprobar su funcionamiento y verificar los resultados.
 
-La operación incluye el registro de los datos de la venta y de los productos que la componen. Si ocurre un error durante el proceso o no hay stock suficiente, la transacción se revierte para evitar que queden datos incompletos.
+## Ventajas de implementación
 
-### 8. Ingreso de mercadería de un proveedor
-
-Se desarrolló una transacción para registrar el ingreso de mercadería proveniente de un proveedor y actualizar las cantidades correspondientes en el inventario.
-
-Esta operación permite registrar la relación entre el producto y su proveedor, incluyendo la cantidad ingresada y el precio de compra. Si ocurre algún inconveniente, los cambios se revierten para mantener la consistencia de los datos.
-
-### 9. Anulación de una venta
-
-Se implementó una transacción que permite anular una venta registrada y restablecer las cantidades de los productos que se habían descontado del stock.
-
-Para ello, se recuperan los productos y las cantidades correspondientes a la venta seleccionada. Luego se eliminan los detalles y el registro de la venta, y se devuelve al inventario la mercadería asociada. Si ocurre un error, se revierten los cambios realizados.
-
-## Motivo de la implementación
-
+- Permite mantener la información consistente cuando se realizan varias operaciones relacionadas.
+- Evita que queden cambios guardados si ocurre un error durante una transacción.
+- Facilita la comprobación del funcionamiento de las transacciones mediante los casos de prueba incluidos.
