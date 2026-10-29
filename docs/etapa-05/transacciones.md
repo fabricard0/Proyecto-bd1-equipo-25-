@@ -19,3 +19,6 @@ Esta operación permite registrar la relación entre el producto y su proveedor,
 Se implementó una transacción que permite anular una venta registrada y restablecer las cantidades de los productos que se habían descontado del stock.
 
 Para ello, se recuperan los productos y las cantidades correspondientes a la venta seleccionada. Luego se eliminan los detalles y el registro de la venta, y se devuelve al inventario la mercadería asociada. Si ocurre un error, se revierten los cambios realizados.
+
+## Motivo de la implementación
+
