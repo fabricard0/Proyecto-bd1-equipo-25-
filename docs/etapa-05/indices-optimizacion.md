@@ -85,3 +85,31 @@ Al usar este código, nos mostrara, los siguientes resultados:
 
 Como se puede apreciar en ambas imágenes, al no existir un índice secundario sobre fecha_hora, SQL Server se vio obligado a leer 3.733 páginas de datos de la tabla VENTA_TEST para evaluar el millón de registros, consumiendo un tiempo transcurrido de 276 ms, ademas que, uso un 100% del CPU para ver estos registros
 
+
+### 3. Comprobar resultados y rendimiento CON indice
+
+Para este caso, crearemos un indice en el que busque a traves de la "fecha_hora" de la tabla  `VENTA_TEST`, luego mostraremos sus resultados y rendimiento, utilizaremos el siguiente codigo
+
+```sql
+USE VETERINARIA;
+GO
+
+-- Creamos el índice correcto sobre la columna de fecha
+CREATE NONCLUSTERED INDEX IX_Venta_Test_Fecha 
+ON VENTA_TEST(fecha_hora);
+GO
+
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+GO
+
+-- Ejecutamos esta consulta para buscar un intervalo de fecha
+SELECT * 
+FROM VENTA_TEST 
+WHERE fecha_hora >= '2025-01-01' 
+  AND fecha_hora < '2025-02-01';
+GO
+```
+Luego de usar ese script, los resultados serian los siguientes:
+
+
