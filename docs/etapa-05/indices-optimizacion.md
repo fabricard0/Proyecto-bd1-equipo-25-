@@ -64,52 +64,23 @@ Ahora buscaremos uno de los registros de la tabla sin usar el indice, también a
 USE VETERINARIA;
 GO
 
--- 1. Activamos las estadísticas de tiempo para ver cuanto tiempo procesamiento le tomo la consulta
--- y E/S (Entrada/Salida), para ver 
+-- 1. Activamos las estadísticas para medir tiempo y E/S (Lecturas lógicas)
 SET STATISTICS TIME ON;
 SET STATISTICS IO ON;
 GO
 
--- 2. Ejecutamos la búsqueda por periodo (ej: todo el mes de enero de un año de prueba)
+-- 2. Búsqueda por periodo (un día específico dentro del rango de los últimos 3 años)
 SELECT * 
 FROM VENTA_TEST 
-WHERE fecha_hora >= '2025-01-01' 
-  AND fecha_hora < '2025-02-01';
+WHERE fecha_hora >= '2025-01-10 00:00:00' 
+  AND fecha_hora < '2025-01-11 00:00:00';
 GO
 ```
-Al usar este código, nos mostrara, los siguientes resultados:
 
-<img width="1197" height="111" alt="Captura de pantalla 2026-10-31 121254" src="https://github.com/user-attachments/assets/aa72c089-b874-439a-89de-6725243b2332" />
 
-<img width="426" height="104" alt="Captura de pantalla 2026-10-31 121432" src="https://github.com/user-attachments/assets/99ea3a11-caf4-4d75-896a-df9d95bc736b" />
 
-Como se puede apreciar en ambas imágenes, al no existir un índice secundario sobre fecha_hora, SQL Server se vio obligado a leer 3.733 páginas de datos de la tabla VENTA_TEST para evaluar el millón de registros, consumiendo un tiempo transcurrido de 276 ms, ademas que, uso un 100% del CPU para ver estos registros
+
 
 
 ### 3. Comprobar resultados y rendimiento CON indice
-
-Para este caso, crearemos un indice en el que busque a traves de la "fecha_hora" de la tabla  `VENTA_TEST`, luego mostraremos sus resultados y rendimiento, utilizaremos el siguiente codigo
-
-```sql
-USE VETERINARIA;
-GO
-
--- Creamos el índice correcto sobre la columna de fecha
-CREATE NONCLUSTERED INDEX IX_Venta_Test_Fecha 
-ON VENTA_TEST(fecha_hora);
-GO
-
-SET STATISTICS TIME ON;
-SET STATISTICS IO ON;
-GO
-
--- Ejecutamos esta consulta para buscar un intervalo de fecha
-SELECT * 
-FROM VENTA_TEST 
-WHERE fecha_hora >= '2025-01-01' 
-  AND fecha_hora < '2025-02-01';
-GO
-```
-Luego de usar ese script, los resultados serian los siguientes:
-
 
