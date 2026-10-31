@@ -113,6 +113,9 @@ Los resultados, son los siguientes luego de usar ese script:
 <img width="612" height="175" alt="Captura de pantalla 2026-10-31 163052" src="https://github.com/user-attachments/assets/e6eb03ce-4661-409a-9376-fadd6fdcbaff" />
 <img width="1092" height="79" alt="Captura de pantalla 2026-10-31 163810" src="https://github.com/user-attachments/assets/d0ea6895-a239-4159-9708-c8bd6d808e73" />
 
+Al crear un índice simple no agrupado sobre la columna fecha_hora, el motor de la base de datos utilizó inicialmente el índice para ubicar los registros de forma directa (el Index Seek). Sin embargo, debido a que la consulta solicitaba todas las columnas mediante un SELECT y el índice no contenía el resto de los datos, el motor se vio obligado a realizar una Búsqueda de claves por cada uno de los 980 registros encontrados para ir a buscarlos a la tabla principal.
+Esto demuestra el fenómeno del costo por saltos múltiples: el esfuerzo y los recursos invertidos en realizar 980 accesos individuales a la tabla principal anularon la ventaja del índice, elevando las lecturas lógicas a 4.821.
+
 
 
 
