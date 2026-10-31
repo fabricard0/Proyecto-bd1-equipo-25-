@@ -79,5 +79,4 @@ GO
 ```
 Al usar este codigo, nos mostrara, los siguientes resultados:
 
-
-
+<img width="1197" height="111" alt="Captura de pantalla 2026-10-31 121254" src="https://github.com/user-attachments/assets/aa72c089-b874-439a-89de-6725243b2332" />
