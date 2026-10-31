@@ -86,7 +86,9 @@ Por lo que se puede ver, se hizo un recorrido completo de toda la tabla examinan
 3733 paginas (lecturas lógicas) y su tiempo respuesta fue 135 milisegundos 
 
 
-
-
 ### 3. Comprobar resultados y rendimiento CON indice
+
+Para el siguiente paso, ejecutaremos la misma consulta para comparar los numeros con un indice no agrupado sobre la columna fecha, con el siguiente script realizaremos:
+
+
 
