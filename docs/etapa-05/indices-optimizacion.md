@@ -77,6 +77,11 @@ WHERE fecha_hora >= '2025-01-01'
   AND fecha_hora < '2025-02-01';
 GO
 ```
-Al usar este codigo, nos mostrara, los siguientes resultados:
+Al usar este código, nos mostrara, los siguientes resultados:
 
 <img width="1197" height="111" alt="Captura de pantalla 2026-10-31 121254" src="https://github.com/user-attachments/assets/aa72c089-b874-439a-89de-6725243b2332" />
+
+<img width="426" height="104" alt="Captura de pantalla 2026-10-31 121432" src="https://github.com/user-attachments/assets/99ea3a11-caf4-4d75-896a-df9d95bc736b" />
+
+Como se puede apreciar en ambas imágenes, al no existir un índice secundario sobre fecha_hora, SQL Server se vio obligado a leer 3.733 páginas de datos de la tabla VENTA_TEST para evaluar el millón de registros, consumiendo un tiempo transcurrido de 276 ms, ademas que, uso un 100% del CPU para ver estos registros
+
