@@ -1,11 +1,11 @@
 ## INDICES
 
 Para la siguiente etapa se implementa el mecanismo de los indices, para optimizar de mejor forma, la búsqueda de ciertos registros en la tabla de base de datos, y haremos una medición
-precisa de los tiempos de respuesta antes y despues de aplicar indices, al igual que evaluaremos la mejora del rendimiento.
-Para este caso en concreto, crearemos una tabla en la que documentaremos los datos y mediciones de tiempo de respuesta, debido a que insertar 1 millon de registros en una tabla, haria que
+precisa de los tiempos de respuesta antes y después de aplicar indices, al igual que evaluaremos la mejora del rendimiento.
+Para este caso en concreto, crearemos una tabla en la que documentaremos los datos y mediciones de tiempo de respuesta, debido a que insertar 1 millón de registros en una tabla, haría que
 haya conflictos con la base de datos de la veterinaria
 
-### 1. Creacion de la tabla e insercion de los 1 millon de registros
+### 1. Creación de la tabla e inserción de los 1 millón de registros
 
 En este caso, aplicaremos el siguiente script la creación de la nueva tabla `VENTA_TEST`:
 
@@ -88,7 +88,32 @@ Por lo que se puede ver, se hizo un recorrido completo de toda la tabla examinan
 
 ### 3. Comprobar resultados y rendimiento CON indice
 
-Para el siguiente paso, ejecutaremos la misma consulta para comparar los numeros con un indice no agrupado sobre la columna fecha, con el siguiente script realizaremos:
+Para el siguiente paso, ejecutaremos la misma consulta para comparar los números con un indice no agrupado sobre la columna fecha, con el siguiente script realizaremos:
+
+```sql
+-- 1. Creamos el índice en la columna fecha_hora
+CREATE NONCLUSTERED INDEX IX_Venta_Test_Fecha 
+ON VENTA_TEST(fecha_hora);
+GO
+
+-- 2. Activamos las estadísticas para medir tiempo y E/S
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+GO
+
+-- 3. EL MISMO CÓDIGO DE BÚSQUEDA DE ANTES (Idéntico)
+SELECT * 
+FROM VENTA_TEST 
+WHERE fecha_hora >= '2025-01-10 00:00:00' 
+  AND fecha_hora < '2025-01-11 00:00:00';
+GO
+```
+Los resultados, son los siguientes luego de usar ese script:
+
+<img width="612" height="175" alt="Captura de pantalla 2026-10-31 163052" src="https://github.com/user-attachments/assets/e6eb03ce-4661-409a-9376-fadd6fdcbaff" />
+<img width="1092" height="79" alt="Captura de pantalla 2026-10-31 163810" src="https://github.com/user-attachments/assets/d0ea6895-a239-4159-9708-c8bd6d808e73" />
+
+
 
 
 
