@@ -120,6 +120,43 @@ Esto demuestra el fenómeno del costo por saltos múltiples: el esfuerzo y los r
 
 En este caso, se borrara el indice anterior y se creara uno nuevo con columnas incluidas para que el motor no tenga que ir a buscar los datos en la tabla, con el siguiente script, hacemos lo siguiente:
 
+```sql
+USE VETERINARIA;
+GO
+
+-- Borramos el índice no agrupado que habíamos creado
+DROP INDEX IX_Venta_Test_Fecha ON VENTA_TEST;
+GO
+
+-- 1. Creamos el índice sobre la fecha incluyendo la columna 'total'
+CREATE NONCLUSTERED INDEX IX_Venta_Test_Fecha_Include 
+ON VENTA_TEST(fecha_hora) 
+INCLUDE (total);
+GO
+
+-- 2. Activamos las estadísticas para medir tiempo y E/S
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+GO
+
+-- 3. Repetimos EXACTAMENTE la misma consulta de búsqueda por periodo
+SELECT * 
+FROM VENTA_TEST 
+WHERE fecha_hora >= '2025-01-10 00:00:00' 
+  AND fecha_hora < '2025-01-11 00:00:00';
+GO
+```
+Los resultados son los siguientes:
+
+<img width="1030" height="87" alt="Captura de pantalla 2026-10-31 172547" src="https://github.com/user-attachments/assets/c08c4727-3467-423e-8853-4f5120bd51d0" />
+<img width="417" height="96" alt="Captura de pantalla 2026-10-31 172513" src="https://github.com/user-attachments/assets/b97d8dd5-aece-4ec7-93da-f0508f36fb7d" />
+
+Como se puede ver, la busqueda del indice como de los datos de la tablas, unicamente se hacen a traves del indice y eso reduce mucho el tiempo, durando solo 
+43 ms y costando solo 7 lecturas logicas
+
+
+
+
 
 
 
