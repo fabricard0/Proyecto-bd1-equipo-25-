@@ -56,4 +56,6 @@ SELECT COUNT(*) AS TotalRegistros FROM VENTA_TEST;
 
 
 ```
-sds
+### 2. Comprobar rendimiento
+
+Ahora buscaremos uno de los registros de la tabla sin usar el indice, tambien activaremos estadistics para comparar resultados
