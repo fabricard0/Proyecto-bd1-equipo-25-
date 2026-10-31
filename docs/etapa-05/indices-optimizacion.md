@@ -77,7 +77,10 @@ WHERE fecha_hora >= '2025-01-10 00:00:00'
 GO
 ```
 
+Los resultados son los siguientes luego de usar ese script:
 
+<img width="1038" height="86" alt="Captura de pantalla 2026-10-31 145323" src="https://github.com/user-attachments/assets/a97cf56d-f27b-4051-b70a-344533297d57" />
+<img width="393" height="99" alt="Captura de pantalla 2026-10-31 145231" src="https://github.com/user-attachments/assets/12b332f3-8982-4a31-b202-670fa397aad0" />
 
 
 
