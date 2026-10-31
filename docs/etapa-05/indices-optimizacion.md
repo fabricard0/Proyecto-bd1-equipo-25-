@@ -154,6 +154,8 @@ Los resultados son los siguientes:
 Como se puede ver, la busqueda del indice como de los datos de la tablas, unicamente se hacen a traves del indice y eso reduce mucho el tiempo, durando solo 
 43 ms y costando solo 7 lecturas logicas
 
+En conclusion: Los indices son herramientas importantes para grandes cantidades de datos, pero su diseño se debe planificar. Para lograr una verdadera optimización, es indispensable analizar 
+las columnas por las que se filtra y las columnas que se proyectan (SELECT), diseñando índices cobertores que eviten los costosos saltos a la tabla principal.
 
 
 
