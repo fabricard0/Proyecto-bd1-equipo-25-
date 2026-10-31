@@ -116,6 +116,11 @@ Los resultados, son los siguientes luego de usar ese script:
 Al crear un índice simple no agrupado sobre la columna fecha_hora, el motor de la base de datos utilizó inicialmente el índice para ubicar los registros de forma directa (el Index Seek). Sin embargo, debido a que la consulta solicitaba todas las columnas mediante un SELECT y el índice no contenía el resto de los datos, el motor se vio obligado a realizar una Búsqueda de claves por cada uno de los 980 registros encontrados para ir a buscarlos a la tabla principal.
 Esto demuestra el fenómeno del costo por saltos múltiples: el esfuerzo y los recursos invertidos en realizar 980 accesos individuales a la tabla principal anularon la ventaja del índice, elevando las lecturas lógicas a 4.821.
 
+### 4. Borrar el indice anterior y agregar el nuevo indice no agrupado con columnas incluidas
+
+En este caso, se borrara el indice anterior y se creara uno nuevo con columnas incluidas para que el motor no tenga que ir a buscar los datos en la tabla, con el siguiente script, hacemos lo siguiente:
+
+
 
 
 
