@@ -82,6 +82,9 @@ Los resultados son los siguientes luego de usar ese script:
 <img width="1038" height="86" alt="Captura de pantalla 2026-10-31 145323" src="https://github.com/user-attachments/assets/a97cf56d-f27b-4051-b70a-344533297d57" />
 <img width="393" height="99" alt="Captura de pantalla 2026-10-31 145231" src="https://github.com/user-attachments/assets/12b332f3-8982-4a31-b202-670fa397aad0" />
 
+Por lo que se puede ver, se hizo un recorrido completo de toda la tabla examinando las páginas de datos una por una hasta llegar al millón de registros, el costo fue de
+3733 paginas (lecturas lógicas) y su tiempo respuesta fue 135 milisegundos 
+
 
 
 
