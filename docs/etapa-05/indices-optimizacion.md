@@ -56,6 +56,28 @@ SELECT COUNT(*) AS TotalRegistros FROM VENTA_TEST;
 
 
 ```
-### 2. Comprobar rendimiento
+### 2. Comprobar resultados y rendimiento sin indice
 
-Ahora buscaremos uno de los registros de la tabla sin usar el indice, tambien activaremos estadistics para comparar resultados
+Ahora buscaremos uno de los registros de la tabla sin usar el indice, también activaremos "estadistics" para ver con mayor precisión dichos resultados:
+
+```sql
+USE VETERINARIA;
+GO
+
+-- 1. Activamos las estadísticas de tiempo para ver cuanto tiempo procesamiento le tomo la consulta
+-- y E/S (Entrada/Salida), para ver 
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+GO
+
+-- 2. Ejecutamos la búsqueda por periodo (ej: todo el mes de enero de un año de prueba)
+SELECT * 
+FROM VENTA_TEST 
+WHERE fecha_hora >= '2025-01-01' 
+  AND fecha_hora < '2025-02-01';
+GO
+```
+Al usar este codigo, nos mostrara, los siguientes resultados:
+
+
+
