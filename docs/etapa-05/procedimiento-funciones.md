@@ -1,4 +1,4 @@
-## Procedimientos Almacenados
+## Procedimientos 
 
 Para esta etapa se implementaron los siguientes procedimientos almacenados para resolver necesidades operativas relacionadas con la registración integral de ventas con validación de inventario, la consulta del historial clínico completo de las mascotas y la búsqueda optimizada de productos por categoría.
 
