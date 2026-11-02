@@ -1,3 +1,34 @@
+## Procedimientos Almacenados
+
+Para esta etapa se implementaron los siguientes procedimientos almacenados para resolver necesidades operativas relacionadas con la registración integral de ventas con validación de inventario, la consulta del historial clínico completo de las mascotas y la búsqueda optimizada de productos por categoría.
+
+
+### 1. Registro integral de ventas
+
+El procedimiento `sp_registrarVenta` recibe como parámetros el identificador del cliente, del método de pago, del producto y la cantidad a comprar. Realiza la verificación previa del stock disponible mediante la función `fn_stockDisponible`, calcula los importes correspondientes y ejecuta una transacción que inserta los registros en las tablas `VENTA` y `DETALLE_VENTA`, actualizando automáticamente las existencias en `STOCK`.
+
+Este procedimiento garantiza la atomicidad de la operación: si no existe stock suficiente o falla alguna inserción, se interrumpe la ejecución evitando inconsistencias en los datos.
+
+### 2. Historial clínico de mascotas
+
+El procedimiento `sp_historialClinicoMascota` recibe el identificador de una mascota y devuelve su historial médico detallado mediante el cruzamiento de las tablas `MASCOTA`, `CONSULTA_MEDICA`, `VETERINARIO` y `TRATAMIENTO`, ordenado cronológicamente desde la consulta más reciente.
+
+Su finalidad es permitir al personal veterinario acceder de forma rápida y centralizada a los diagnósticos, profesionales responsables, tratamientos y medicamentos aplicados a un paciente.
+
+### 3. Consulta de productos por categoría
+
+El procedimiento `sp_consultarProductosCategoria` recibe una categoría de producto como parámetro y devuelve todos los artículos pertenecientes a ella, mostrando su identificador, nombre, precio y cantidad disponible en stock.
+
+Este procedimiento facilita el control de inventario y la atención comercial al concentrar la información del catálogo filtrada y ordenada alfabéticamente.
+
+## Beneficios de la implementación
+
+La incorporación de estos procedimientos almacenados aporta los siguientes beneficios al sistema:
+
+- **Integridad y seguridad operativamente garantizada:** asegura que operaciones sensibles, como el registro de ventas y descuento de inventarios, se ejecuten dentro de una transacción coherente.
+- **Centralización de la lógica de negocio:** permite ejecutar operaciones complejas desde el motor de base de datos sin duplicar sentencias SQL en la capa de aplicación.
+- **Facilidad de mantenimiento y consulta:** estandariza las búsquedas frecuentes sobre el historial clínico y el catálogo de productos para el consumo directo del equipo.
+  
 ## Funciones
 
 Para esta etapa se implementaron las siguientes funciones para resolver necesidades relacionadas con la gestión de ventas, el control de stock de productos, el seguimiento de los gastos de los clientes y la consulta del historial médico de las mascotas.
