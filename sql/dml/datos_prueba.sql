@@ -89,7 +89,7 @@ VALUES
 
 --SELECT * FROM PRODUCTO;
 
-InSERT INTO MASCOTA (nombre, especie, raza, edad, peso, id_cliente)
+INSERT INTO MASCOTA (nombre, especie, raza, edad, peso, id_cliente)
 VALUES
 ('Max', 'Perro', 'Labrador', '4', '28.50', 1),
 ('Luna', 'Gato', 'Siames', '2', '3.80', 2),
