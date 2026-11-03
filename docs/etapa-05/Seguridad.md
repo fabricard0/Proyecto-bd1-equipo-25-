@@ -83,6 +83,33 @@ GO
 
 ### 3. Pruebas del insert y el procedimiento con ambos usuarios
 
+Realizaremos una serie de pruebas para verificar el funcionamiento de los permisos y restricciones de acceso, al ejecutar el siguiente script luego de haber creado los usuarios 
+
+
+```sql
+USE VETERINARIA;
+GO
+
+----------------------------------------------------
+-- 1. PROBANDO CON EL USUARIO DE LECTURA (usr_lectura)
+----------------------------------------------------
+EXECUTE AS LOGIN = 'LgnLectura';
+GO
+
+
+-- Si iniciaras sesión como usr_lectura_tp y ejecutas esto: creo que daria error
+INSERT INTO MASCOTA (nombre, especie, raza, edad, peso, id_cliente)
+VALUES
+('Enzo', 'Perro', 'Salchicha', '7', '15 kilos', 4);
+```
+
+Nos soltara el siguiente mensaje la consola:
+
+<img width="943" height="546" alt="Captura de pantalla 2026-11-03 205202" src="https://github.com/user-attachments/assets/ff4ee892-9f61-4be7-ba57-abb3b40466e3" />
+
+Como se puede apreciar, el permiso de INSERT fue denegado en el usuario lectura, sin embargo, al usar el procedimiento que le otorgamos anteriormente:
+
+
 
 
 
