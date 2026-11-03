@@ -29,41 +29,142 @@ La incorporación de estos procedimientos almacenados aporta los siguientes bene
 - **Centralización de la lógica de negocio:** permite ejecutar operaciones complejas desde el motor de base de datos sin duplicar sentencias SQL en la capa de aplicación.
 - **Facilidad de mantenimiento y consulta:** estandariza las búsquedas frecuentes sobre el historial clínico y el catálogo de productos para el consumo directo del equipo.
   
-## Funciones
+## Funciones 
 
-Para esta etapa se implementaron las siguientes funciones para resolver necesidades relacionadas con la gestión de ventas, el control de stock de productos, el seguimiento de los gastos de los clientes y la consulta del historial médico de las mascotas.
+### 1. Definición y objetivo
+
+Las funciones definidas por el usuario (UDF, *User-Defined Functions*) en SQL Server son objetos de la base de datos que permiten encapsular una serie de instrucciones SQL para realizar una operación específica y devolver un resultado.
+
+Su objetivo principal es reutilizar lógica de consulta o cálculo, evitando repetir código en distintas partes del sistema.
+
+En el sistema de gestión de la veterinaria, las funciones permiten realizar cálculos relacionados con las ventas, consultar el stock disponible y obtener información sobre los clientes y sus mascotas.
+
+SQL Server permite crear diferentes tipos de funciones:
+
+- **Funciones escalares:** devuelven un único valor, como un número, una cadena de texto o una fecha.
+- **Funciones con valor de tabla:** devuelven un conjunto de filas y columnas que pueden utilizarse en consultas SQL.
+
+### 2. Ventajas y aplicaciones
+
+Las funciones definidas por el usuario presentan las siguientes ventajas:
+
+- **Reutilización de código:** permiten utilizar una misma operación en diferentes consultas.
+- **Modularidad:** dividen la lógica del sistema en componentes independientes.
+- **Mantenimiento:** facilitan la modificación de cálculos sin tener que cambiar todas las consultas que los utilizan.
+- **Consistencia:** aseguran que un mismo cálculo se realice de la misma manera en distintas partes del sistema.
+- **Simplificación de consultas:** permiten reducir la complejidad de las instrucciones SQL.
+
+#### Aplicaciones en el sistema de la veterinaria
+
+| Función | Aplicación |
+|---|---|
+| `fn_totalVenta` | Calcula el importe total de una venta. |
+| `fn_stockDisponible` | Consulta la cantidad disponible de un producto. |
+| `fn_gastoTotalCliente` | Calcula el gasto acumulado de un cliente. |
+| `fn_consultasMascota` | Obtiene las consultas médicas realizadas a una mascota. |
 
 
-### 1. Cálculo del total de una venta
+### 3. Caso concreto aplicado al sistema de ventas del equipo
 
-La función `fn_totalVenta` recibe el identificador de una venta y calcula el importe total mediante la suma de los subtotales registrados en la tabla `DETALLE_VENTA`.
+En el sistema de gestión de la veterinaria se implementaron funciones para facilitar la obtención de información relevante relacionada con las ventas y la atención médica de las mascotas.
 
-Esta función permite obtener el total de una venta sin tener que escribir nuevamente la consulta de suma cada vez que se necesita el resultado. Si la venta no tiene detalles registrados, devuelve cero.
+#### A) Función `fn_totalVenta`
 
-### 2. Consulta del stock disponible
+Esta función recibe como parámetro el identificador de una venta y calcula el importe total sumando los subtotales de los productos registrados en `DETALLE_VENTA`.
 
-La función `fn_stockDisponible` recibe el identificador de un producto y consulta su cantidad registrada en la tabla `STOCK`.
+Su aplicación permite conocer el total de una venta sin tener que escribir nuevamente la consulta de suma.
 
-Su finalidad es facilitar el acceso a la información de inventario de los productos comercializados por la veterinaria. Si no existe un registro de stock para el producto, la función devuelve `NULL`, lo que permite distinguir esa situación de un stock registrado con cantidad cero.
+#### B) Función `fn_stockDisponible`
 
-### 3. Cálculo del gasto total de un cliente
+Esta función recibe el identificador de un producto y devuelve la cantidad disponible registrada en la tabla `STOCK`.
 
-La función `fn_gastoTotalCliente` recibe el identificador de un cliente y suma los importes de sus ventas registradas en la tabla `VENTA`.
+Permite consultar el stock de los productos comercializados por la veterinaria, como medicamentos, alimentos y artículos de higiene.
 
-Esta función permite conocer el gasto acumulado de cada cliente y facilita la consulta de información relacionada con las operaciones comerciales. Si el cliente no tiene ventas registradas, devuelve cero.
+#### C) Función `fn_gastoTotalCliente`
 
-### 4. Consulta de los motivos de atención de una mascota
+Esta función recibe el identificador de un cliente y calcula el importe total de sus compras, sumando los montos registrados en la tabla `VENTA`.
 
-La función `fn_consultasMascota` recibe el identificador de una mascota y devuelve los motivos de las consultas asociadas a ella en la tabla `CONSULTA`.
+Permite conocer cuánto dinero ha gastado un cliente en el establecimiento.
 
-A diferencia de las funciones anteriores, esta función devuelve una tabla, ya que una mascota puede tener varias consultas registradas. De esta manera, permite recuperar información del historial de atenciones veterinarias mediante una única llamada.
+#### D) Función `fn_consultasMascota`
 
-## Beneficios de la implementación
+Esta función recibe el identificador de una mascota y devuelve una tabla con las consultas médicas realizadas.
 
-La incorporación de estas funciones aporta los siguientes beneficios al sistema:
+La información obtenida incluye:
 
-- **Reutilización del código:** permite ejecutar operaciones frecuentes sin repetir las mismas consultas SQL.
-- **Organización:** concentra la lógica de determinadas operaciones dentro de objetos específicos de la base de datos.
-- **Simplificación de consultas:** facilita la obtención de resultados relacionados con ventas, productos, clientes y mascotas.
+- Fecha de la consulta.
+- Hora de la consulta.
+- Motivo de la consulta.
 
-Los scripts y evidencias de las funciones están en [procedimientos_funciones](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/tree/main/sql/tecnico/procedimientos/procedimientos_funciones)
+Esta función facilita la consulta del historial médico de cada mascota.
+
+### 4. Script de demostración y resultados obtenidos
+
+los scripts de creación y utilización de las funciones implementadas en la base de datos de la veterinaria se encuentran en [scripts.sql](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/procedimientos_funciones/scripts.sql).
+
+#### Función para calcular el total de una venta
+
+**Consulta de demostración:**
+
+```sql
+SELECT dbo.fn_totalVenta(4) AS totalVenta;
+```
+**Resultado esperado:**
+
+| totalVenta |
+|---:|
+| 25000.00 |
+
+
+#### Función para consultar el stock disponible
+
+**Consulta de demostración:**
+
+```sql
+SELECT dbo.fn_stockDisponible(4) AS STOCK;
+```
+**Resultado esperado:**
+
+| STOCK |
+|---:|
+| 20 |
+
+
+
+#### Función para calcular el gasto total de un cliente
+
+**Consulta de demostración:**
+
+```sql
+SELECT dbo.fn_gastoTotalCliente(5) AS gastoTotal;
+```
+
+**Resultado esperado:**
+
+| gastoTotal |
+|---:|
+| 44000.00 |
+
+#### Función para obtener las consultas de una mascota
+
+**Consulta de demostración:**
+
+```sql
+SELECT *
+FROM dbo.fn_consultasMascota(1);
+```
+**Resultado esperado:**
+
+| fecha | hora | motivo |
+|---|---|---|
+| 2026-09-01 | 09:00 | Fiebre y Falta de apetito |
+| 2026-09-20 | 16:00 | Control General|
+
+
+### Conclusión
+
+Las funciones definidas por el usuario en SQL Server Express constituyen una herramienta útil para mejorar la organización, reutilización y mantenimiento del código SQL.
+
+En el sistema de gestión de la veterinaria, su implementación permite automatizar cálculos relacionados con las ventas, consultar el stock disponible, obtener el gasto acumulado de los clientes y recuperar el historial de consultas de las mascotas.
+
+De esta manera, las funciones contribuyen a simplificar las consultas y centralizar la lógica de determinadas operaciones, facilitando el desarrollo y mantenimiento del sistema de base de datos.
