@@ -5,7 +5,7 @@ CREATE NONCLUSTERED INDEX IX_Venta_Fecha_Include
 ON VENTA(fecha_hora) 
 INCLUDE (monto, id_cliente);
 
---Indice que busca la fecha de una consulta y incluye el monto, id de la mascota y el id del veterinario
+-- Indice que busca la fecha de una consulta e incluye el motivo, el id de la mascota y el id del veterinario
 CREATE NONCLUSTERED INDEX IX_Consulta_Fecha_Include 
 ON CONSULTA(fecha) 
 INCLUDE (motivo, id_mascota, id_veterinario);
