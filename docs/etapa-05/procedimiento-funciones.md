@@ -29,6 +29,91 @@ La incorporación de estos procedimientos almacenados aporta los siguientes bene
 - **Centralización de la lógica de negocio:** permite ejecutar operaciones complejas desde el motor de base de datos sin duplicar sentencias SQL en la capa de aplicación.
 - **Facilidad de mantenimiento y consulta:** estandariza las búsquedas frecuentes sobre el historial clínico y el catálogo de productos para el consumo directo del equipo.
   
+## Casos de prueba:
+
+Se realizaron diferentes pruebas de ejecución para verificar el correcto funcionamiento de los procedimientos almacenados implementados en la base de datos `VETERINARIA`. Las pruebas permitieron comprobar las operaciones de registro y consulta de información, verificando que los procedimientos respondan correctamente a los parámetros recibidos y trabajen de acuerdo con la estructura, las relaciones y las restricciones definidas en la base de datos.
+
+### Caso de prueba 1: Venta de Amoxicilina
+
+**Ejecución:**
+
+```sql
+EXEC dbo.sp_registrarVenta @id_cliente = 1,@id_metodo_pago = 1,@id_producto = 9,@cantidad = 2;
+```
+
+Archivo de evidencia: [caso_venta1.jpg](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/procedimientos_funciones/evidencia_procedimientos/caso_venta1.png)
+
+---
+### Caso de prueba 2: Venta de Cefalexina
+
+**Ejecución:**
+
+```sql
+EXEC dbo.sp_registrarVenta @id_cliente = 2,@id_metodo_pago = 2, @id_producto = 10,@cantidad = 3;
+```
+
+Archivo de evidencia: [caso_venta2.jpg](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/procedimientos_funciones/evidencia_procedimientos/caso_venta2.png)
+
+---
+### Caso de prueba 3: Venta de Miconazol
+
+**Ejecución:**
+
+```sql
+EXEC dbo.sp_registrarVenta @id_cliente = 3, @id_metodo_pago = 3, @id_producto = 16, @cantidad = 2;
+```
+Archivo de evidencia: [caso3_venta.jpg](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/procedimientos_funciones/evidencia_procedimientos/caso_venta3.png)
+
+---
+
+### Caso de prueba 4: Consulta de productos de la categoría Alimentos
+
+**Ejecución:**
+
+```sql
+EXEC dbo.sp_consultarProductosCategoria @categoria = 'Alimentos';
+```
+
+Archivo de evidencia: [imagen.png](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/procedimientos_funciones/evidencia_procedimientos/caso_productos_categoria1.png)
+
+---
+
+### Caso de prueba 5: Consulta de productos de la categoría Medicamentos
+
+**Ejecución:**
+
+```sql
+EXEC dbo.sp_consultarProductosCategoria @categoria = 'Medicamentos';
+```
+
+Archivo de evidencia: [imagen.png](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/procedimientos_funciones/evidencia_procedimientos/caso_productos_categoria2.png)
+
+---
+
+### Caso de prueba 6: Consulta del historial clínico de la mascota 1
+
+**Ejecución:**
+
+```sql
+EXEC dbo.sp_historialClinicoMascota @id_mascota = 1;
+```
+
+Archivo de evidencia: [imagen.png](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/procedimientos_funciones/evidencia_procedimientos/caso_historial_clinico1.png)
+
+---
+
+### Caso de prueba 7: Consulta del historial clínico de la mascota 4
+
+**Ejecución:**
+
+```sql
+EXEC dbo.sp_historialClinicoMascota @id_mascota = 4;
+```
+
+Archivo de evidencia: [imagen.png](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/procedimientos_funciones/evidencia_procedimientos/caso_historial_clinico2.png)
+
+---
+  
 ## Funciones 
 
 ### 1. Definición y objetivo
