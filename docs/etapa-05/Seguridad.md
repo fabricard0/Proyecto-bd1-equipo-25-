@@ -25,3 +25,22 @@ CREATE USER usr_lectura FOR LOGIN LgnLectura;
 GO
 
 ```
+
+### 2. Asignación de roles a diferentes usuarios 
+
+Luego de haber creado dichos usuarios, les asignaremos los roles correspondientes, uno le asignaremos el rol de admin y otro de solo lectura:
+
+```sql
+
+-- 3. Al usuario usr_admin, le damos el control total de la base de datos (el rol de owner)
+ALTER ROLE db_owner ADD MEMBER usr_admin;
+GO
+
+-- 4. Al usuario usr_lectura, el damos el permiso de lectura (rol db_datareader)
+ALTER ROLE db_datareader ADD MEMBER usr_lectura;
+GO
+
+```
+
+
+
