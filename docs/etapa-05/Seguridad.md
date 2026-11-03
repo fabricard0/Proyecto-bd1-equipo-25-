@@ -81,6 +81,12 @@ GRANT EXECUTE ON dbo.sp_historialClinicoMascota TO usr_lectura;
 GO
 ```
 
+### 3. Pruebas del insert y el procedimiento con ambos usuarios
+
+
+
+
+
 
 
 
