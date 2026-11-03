@@ -198,5 +198,50 @@ Registra la cantidad disponible de cada producto comercializado por la veterinar
 | `id_producto` | INT | NOT NULL, UNIQUE, **Foreign Key (FK)** → `PRODUCTO(id_producto)` |
 | `cantidad` | INT | NOT NULL, CHECK (cantidad >= 0) |
 
+## Relaciones y Cardinalidades
+
+Las relaciones entre las entidades se establecen mediante claves foráneas. Las cardinalidades indican cuántos registros de una entidad pueden asociarse con los registros de otra.
+
+| **Relación** | **Cardinalidad** | **Descripción** |
+|---|---|---|
+| `CLIENTE` → `MASCOTA` | **1..N** | Un cliente puede tener varias mascotas; cada mascota pertenece a un único cliente. |
+| `MASCOTA` → `CONSULTA` | **1..N** | Una mascota puede tener varias consultas; cada consulta corresponde a una única mascota. |
+| `VETERINARIO` → `CONSULTA` | **1..N** | Un veterinario puede realizar varias consultas; cada consulta está a cargo de un único veterinario. |
+| `CONSULTA` → `TRATAMIENTO` | **1..N** | Una consulta puede tener varios tratamientos; cada tratamiento corresponde a una única consulta. |
+| `VETERINARIO` → `VETERINARIO_ESPECIALIDAD` | **1..N** | Un veterinario puede estar asociado a varias especialidades mediante la tabla intermedia. |
+| `ESPECIALIDAD` → `VETERINARIO_ESPECIALIDAD` | **1..N** | Una especialidad puede estar asociada a varios veterinarios mediante la tabla intermedia. |
+| `TRATAMIENTO` → `DETALLE_TRATAMIENTO` | **1..N** | Un tratamiento puede contener varios medicamentos indicados. |
+| `MEDICAMENTO` → `DETALLE_TRATAMIENTO` | **1..N** | Un medicamento puede aparecer en diferentes tratamientos. |
+| `PRODUCTO` → `MEDICAMENTO` | **1..0..1** | Un producto puede no ser un medicamento o estar asociado a un único registro de medicamento. Cada medicamento corresponde a un único producto. |
+| `PRODUCTO` → `STOCK` | **1..0..1** | Un producto puede no tener todavía un registro de stock o tener uno solo. Cada registro de stock corresponde a un único producto. |
+| `PRODUCTO` → `PRODUCTO_PROVEEDOR` | **1..N** | Un producto puede estar asociado a varios proveedores mediante la tabla intermedia. |
+| `PROVEEDOR` → `PRODUCTO_PROVEEDOR` | **1..N** | Un proveedor puede suministrar varios productos mediante la tabla intermedia. |
+| `CLIENTE` → `VENTA` | **1..N** | Un cliente puede realizar varias ventas; cada venta pertenece a un único cliente. |
+| `METODO_PAGO` → `VENTA` | **1..N** | Un método de pago puede utilizarse en varias ventas; cada venta registra un único método de pago. |
+| `VENTA` → `DETALLE_VENTA` | **1..N** | Una venta puede contener varios productos; cada detalle pertenece a una única venta. |
+| `PRODUCTO` → `DETALLE_VENTA` | **1..N** | Un producto puede aparecer en diferentes ventas; cada detalle referencia a un único producto. |
+
+
+## Consideraciones del Modelo
+
+- **Claves primarias simples:** las tablas principales utilizan identificadores autoincrementales mediante `IDENTITY(1,1)`, lo que permite generar identificadores únicos automáticamente.
+
+- **Claves primarias compuestas:** las tablas `DETALLE_VENTA`, `DETALLE_TRATAMIENTO`, `VETERINARIO_ESPECIALIDAD` y `PRODUCTO_PROVEEDOR` utilizan combinaciones de dos identificadores para garantizar la unicidad de cada relación.
+
+- **Separación de productos y medicamentos:** la tabla `PRODUCTO` almacena los datos generales de los artículos comercializados, mientras que `MEDICAMENTO` contiene información específica de los productos que corresponden a medicamentos.
+
+- **Control de stock:** la tabla `STOCK` permite mantener las cantidades disponibles de los productos. La restricción `UNIQUE` sobre `id_producto` establece que cada producto puede tener como máximo un registro de stock.
+
+- **Relaciones muchos a muchos:** se utilizan tablas intermedias para representar las relaciones entre veterinarios y especialidades, tratamientos y medicamentos, y productos y proveedores.
+
+- **Integridad referencial:** las claves foráneas impiden registrar relaciones con entidades inexistentes y protegen la consistencia de la información.
+
+## Conclusión
+
+El modelo relacional de la base de datos `VETERINARIA` permite representar de manera organizada las actividades médicas y comerciales del establecimiento.
+
+La estructura contempla las entidades principales, sus atributos y las relaciones necesarias para administrar los clientes, sus mascotas, los profesionales, las consultas, los tratamientos, los medicamentos, los productos y las ventas.
+
+La utilización de claves primarias, claves foráneas, claves compuestas y restricciones de dominio permite mantener la integridad de los datos y garantizar que las operaciones del sistema respeten las reglas de negocio establecidas.
 
 
