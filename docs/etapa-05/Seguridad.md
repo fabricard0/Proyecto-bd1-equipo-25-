@@ -26,7 +26,7 @@ GO
 
 ```
 
-### 2. Asignación de roles a diferentes usuarios 
+### 2. Asignación de roles a diferentes usuarios y asignar permiso de ejecución al usuario con permiso de solo lectura
 
 Luego de haber creado dichos usuarios, les asignaremos los roles correspondientes, uno le asignaremos el rol de admin y otro de solo lectura:
 
@@ -41,6 +41,49 @@ ALTER ROLE db_datareader ADD MEMBER usr_lectura;
 GO
 
 ```
+
+Una vez asignado los roles, le asignaremos al usuario de lectura (usr_lectura) el permiso para ejecutar uno de los procedimientos de nuestra base de datos, que es la siguiente:
+
+```sql
+--Procedimiento para consultar el historial clinico completo de una mascota y en el que se lo asignaremos al usuario usr_lectura
+CREATE PROCEDURE dbo.sp_historialClinicoMascota
+(
+    @id_mascota INT
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        m.id_mascota,
+        m.nombre AS mascota,
+        m.especie,
+        c.fecha_consulta,
+        c.diagnostico,
+        v.apellido + ', ' + v.nombre AS veterinario,
+        ISNULL(t.descripcion, 'Sin tratamiento') AS tratamiento,
+        ISNULL(t.medicamento, 'N/A') AS medicamento
+    FROM MASCOTA m
+    INNER JOIN CONSULTA_MEDICA c ON c.id_mascota = m.id_mascota
+    INNER JOIN VETERINARIO v ON v.id_veterinario = c.id_veterinario
+    LEFT JOIN TRATAMIENTO t ON t.id_consulta = c.id_consulta
+    WHERE m.id_mascota = @id_mascota
+    ORDER BY c.fecha_consulta DESC;
+END;
+GO
+
+```
+Y este es el script que usaremos para asignar dicho procedimiento:
+
+```sql
+-- Otorgamos permiso de ejecución al usuario sobre el procedimiento almacenado
+GRANT EXECUTE ON dbo.sp_historialClinicoMascota TO usr_lectura;
+GO
+```
+
+
+
+
 
 
 
