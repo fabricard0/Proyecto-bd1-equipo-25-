@@ -177,24 +177,40 @@ GO
 Luego de crear los 2 usuarios y asignar el rol al usuario, usr_con_rol, ejecutaremos el siguiente script:
 
 ```sql
--- PRUEBAS DE ACCESO CORRECTAS
+USE VETERINARIA;
+GO
 
--- PRUEBA 1: Probando con el usuario SIN rol (Debe dar ERROR de permisos)
+
+-- PRUEBA 1: Simular el acceso con el usuario SIN rol 
+
 EXECUTE AS USER = 'usr_sin_rol';
 GO
-SELECT * FROM VETERINARIO; 
+
+-- Esto debería fallar con un mensaje de permiso denegado
+SELECT * FROM VETERINARIO;
 GO
+
+-- Volver a la cuenta de administrador (sa)
 REVERT;
 GO
 
--- PRUEBA 2: Probando con el usuario CON rol (Debe funcionar correctamente)
+
+-- PRUEBA 2: Simular el acceso con el usuario CON rol 
+
 EXECUTE AS USER = 'usr_con_rol';
 GO
-SELECT * FROM VETERINARIO; 
+
+-- Esto debería mostrar los registros de la tabla con éxito
+SELECT * FROM VETERINARIO;
 GO
+
+-- Volver a la cuenta de administrador (sa)
 REVERT;
 GO
 ```
+Dandonos, los siguientes resultados:
+
+
 
 
 
