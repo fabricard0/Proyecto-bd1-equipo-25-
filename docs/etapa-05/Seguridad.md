@@ -211,8 +211,13 @@ GO
 Dandonos, los siguientes resultados:
 
 
+<img width="637" height="489" alt="Captura de pantalla 2026-11-03 225425" src="https://github.com/user-attachments/assets/e4ae50cf-bc8a-4b4e-b1ad-db5a6f3399ba" />
 
 
+<img width="760" height="592" alt="Captura de pantalla 2026-11-03 225451" src="https://github.com/user-attachments/assets/695c01ac-e723-4c1c-ba24-7009951655ac" />
+
+
+Conclusiones: 
 
 
 
