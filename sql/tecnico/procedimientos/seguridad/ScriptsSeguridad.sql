@@ -26,6 +26,10 @@ GO
 GRANT EXECUTE ON dbo.sp_historialClinicoMascota TO [usr_lectura];
 GO
 
+--Se le otorgoa el permiso de ejecucion de este procedimiento
+GRANT EXECUTE ON dbo.sp_consultarProductosCategoria TO [usr_lectura];
+GO
+
  ---ROLES---
 --Scripts para crear usuarios y asignarles un rol en concreto
 
