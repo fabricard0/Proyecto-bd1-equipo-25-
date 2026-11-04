@@ -155,6 +155,23 @@ Se incluyen consultas para la emisión de comprobantes de venta, la elaboración
 Los scripts SQL correspondientes se encuentran en [`sql/consultas/`](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/consultas/).
 
 ---
+## Etapa 05 — Funcionalidades avanzadas y administración
+
+Esta etapa comprende la implementación de funcionalidades avanzadas en SQL Server para automatizar operaciones, controlar la integridad de los datos y optimizar la gestión de la veterinaria.
+
+Se incluyen funciones, procedimientos almacenados, triggers, transacciones, índices y mecanismos de seguridad, junto con sus respectivas pruebas de funcionamiento.
+
+| **Documento** | **Descripción** |
+| ---------------------------------------------------------------- | --------------------------------------------------------------- |
+| [`procedimientos-funciones.md`](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/docs/etapa-05/procedimiento-funciones.md) | Documentación de las funciones y procedimientos almacenados. |
+| [`triggers_auditoria.md`](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/docs/etapa-05/triggers_auditoria.md) | Documentación de los triggers de actualización, auditoría y control. |
+| [`transacciones.md`](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/docs/etapa-05/transacciones.md) | Documentación de las operaciones transaccionales y sus pruebas. |
+| [`indices-optimizacion.md`](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/docs/etapa-05/indices-optimizacion.md) | Documentación de los índices implementados para optimizar consultas. |
+| [`seguridad.md`](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/docs/etapa-05/Seguridad.md) | Documentación de usuarios, roles y permisos de acceso. |
+
+Los scripts SQL correspondientes se encuentran en [`sql/tecnico/`](https://github.com/fabricard0/Proyecto-bd1-equipo-25-/blob/main/sql/tecnico/procedimientos/).
+
+---
 
 ## 🗂️ Estructura del repositorio
 
