@@ -113,6 +113,81 @@ Como se puede apreciar, el permiso de INSERT fue denegado en el usuario lectura,
 
 
 
+----------------------------------------------------
+-- 1. PROBANDO CON EL USUARIO DE LECTURA (usr_lectura)
+----------------------------------------------------
+EXECUTE AS LOGIN = 'LgnLectura';
+GO
+
+
+
+
+-- Si iniciaras sesión como usr_lectura_tp y ejecutas esto: creo que daria error
+INSERT INTO MASCOTA (nombre, especie, raza, edad, peso, id_cliente)
+VALUES
+('Enzo', 'Perro', 'Salchicha', '7', '15 kilos', 4);
+
+
+-- Ejecutando con el usuario lector:
+EXEC dbo.sp_historialClinicoMascota @id_mascota = 1;
+GO
+
+-- Volvemos a nuestro usuario administrador original:
+REVERT;
+GO
+
+----------------------------------------------------
+-- 2. PROBANDO CON EL ADMINISTRADOR (usr_admin)
+----------------------------------------------------
+EXECUTE AS LOGIN = 'LgnAdmin';
+GO
+
+-- Esto SÍ funcionará sin problemas porque es el dueño de la BD:
+INSERT INTO CLIENTE (apellido, nombre, direccion, telefono, email) 
+VALUES ('Gimenez', 'Carlos', 'Mitre 123', '3624111111', 'carlos@email.com');
+GO
+
+-- Volvemos a nuestro usuario administrador original:
+REVERT;
+GO
+
+
+
+
+
+
+--  Creamos dos nuevos usuarios para esta prueba de roles personalizados
+CREATE LOGIN LgnUserA WITH PASSWORD = 'Contrasena1234';
+CREATE LOGIN LgnUserB WITH PASSWORD = 'Contrasena1234';
+GO
+
+CREATE USER usr_con_rol FOR LOGIN LgnUserA;
+CREATE USER usr_sin_rol FOR LOGIN LgnUserB;
+GO
+
+-- 2. Creamos un Rol Personalizado en la base de datos (por ejemplo, un rol para ver todas las ventas)
+CREATE ROLE rol_lectura_veterinarios;
+GO
+
+-- 3. Le damos permiso de SELECT (lectura) UNICAMENTE sobre ese tabla en ese rol
+GRANT SELECT ON VETERINARIO TO rol_lectura_veterinarios;
+GO
+
+-- 4. Agregamos a uno de los usuarios al rol personalizado creado
+ALTER ROLE rol_lectura_veterinarios ADD MEMBER usr_con_rol;
+GO
+
+-- Del sin rol
+SELECT * FROM VETERINARIO;
+
+--Del con rol
+SELECT * FROM VETERINARIO;
+
+
+
+
+
+
 
 
 
