@@ -148,19 +148,10 @@ como se puede, se inserto la nueva mascota y se pudo ver los resultados
 
 ### 4. Pruebas del insert y el procedimiento con nuevos usuarios a nivel de roles de la base de datos
 
+Crearemos otros 2 usuarios para comprobar la funcion de los roles:
 
 
-
-
-
-
-
-
-
-
-
-
-
+```sql
 --  Creamos dos nuevos usuarios para esta prueba de roles personalizados
 CREATE LOGIN LgnUserA WITH PASSWORD = 'Contrasena1234';
 CREATE LOGIN LgnUserB WITH PASSWORD = 'Contrasena1234';
@@ -187,7 +178,7 @@ SELECT * FROM VETERINARIO;
 
 --Del con rol
 SELECT * FROM VETERINARIO;
-
+```
 
 
 
