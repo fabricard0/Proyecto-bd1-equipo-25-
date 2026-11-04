@@ -217,7 +217,8 @@ Dandonos, los siguientes resultados:
 <img width="760" height="592" alt="Captura de pantalla 2026-11-03 225451" src="https://github.com/user-attachments/assets/695c01ac-e723-4c1c-ba24-7009951655ac" />
 
 
-Conclusiones: 
+Conclusiones: La implementación de permisos y roles en esta etapa ha demostrado ser fundamental, debido al hecho que protegemos las tablas contra accesos no autorizados. 
+Asimismo, el uso de procedimientos almacenados con GRANT EXECUTE permitió habilitar operaciones controladas para usuarios restringidos, mientras que los roles personalizados facilitaron una gestión escalable y segura de los accesos a nivel de base de datos.
 
 
 
