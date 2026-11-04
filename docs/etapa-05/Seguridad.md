@@ -152,7 +152,7 @@ Crearemos otros 2 usuarios para comprobar la funcion de los roles:
 
 
 ```sql
---  Creamos dos nuevos usuarios para esta prueba de roles personalizados
+-- 1. Creamos dos nuevos usuarios para esta prueba de roles personalizados
 CREATE LOGIN LgnUserA WITH PASSWORD = 'Contrasena1234';
 CREATE LOGIN LgnUserB WITH PASSWORD = 'Contrasena1234';
 GO
@@ -161,25 +161,40 @@ CREATE USER usr_con_rol FOR LOGIN LgnUserA;
 CREATE USER usr_sin_rol FOR LOGIN LgnUserB;
 GO
 
--- 2. Creamos un Rol Personalizado en la base de datos (por ejemplo, un rol para ver todas las ventas)
+-- 2. Creamos un Rol Personalizado en la base de datos
 CREATE ROLE rol_lectura_veterinarios;
 GO
 
--- 3. Le damos permiso de SELECT (lectura) UNICAMENTE sobre ese tabla en ese rol
+-- 3. Le damos permiso de SELECT (lectura) UNICAMENTE sobre esa tabla en ese rol
 GRANT SELECT ON VETERINARIO TO rol_lectura_veterinarios;
 GO
 
 -- 4. Agregamos a uno de los usuarios al rol personalizado creado
 ALTER ROLE rol_lectura_veterinarios ADD MEMBER usr_con_rol;
 GO
-
--- Del sin rol
-SELECT * FROM VETERINARIO;
-
---Del con rol
-SELECT * FROM VETERINARIO;
 ```
 
+Luego de crear los 2 usuarios y asignar el rol al usuario, usr_con_rol, ejecutaremos el siguiente script:
+
+```sql
+-- PRUEBAS DE ACCESO CORRECTAS
+
+-- PRUEBA 1: Probando con el usuario SIN rol (Debe dar ERROR de permisos)
+EXECUTE AS USER = 'usr_sin_rol';
+GO
+SELECT * FROM VETERINARIO; 
+GO
+REVERT;
+GO
+
+-- PRUEBA 2: Probando con el usuario CON rol (Debe funcionar correctamente)
+EXECUTE AS USER = 'usr_con_rol';
+GO
+SELECT * FROM VETERINARIO; 
+GO
+REVERT;
+GO
+```
 
 
 
