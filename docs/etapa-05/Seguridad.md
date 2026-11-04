@@ -128,15 +128,27 @@ GO
 EXECUTE AS LOGIN = 'LgnAdmin';
 GO
 
--- Esto SÍ funcionará sin problemas porque es el dueño de la BD:
-INSERT INTO CLIENTE (apellido, nombre, direccion, telefono, email) 
-VALUES ('Gimenez', 'Carlos', 'Mitre 123', '3624111111', 'carlos@email.com');
-GO
+INSERT INTO MASCOTA (nombre, especie, raza, edad, peso, id_cliente) 
+VALUES ('Enzo', 'Perro', 'Salchicha', 7, 14, 3);
+
+SELECT * FROM MASCOTA;
 
 -- Volvemos a nuestro usuario administrador original:
 REVERT;
 GO
 ```
+
+El resultado es el siguiente:
+
+<img width="608" height="669" alt="Captura de pantalla 2026-11-03 223348" src="https://github.com/user-attachments/assets/ef8a6a7f-5f19-4dd7-a736-48e053be732e" />
+
+
+como se puede, se inserto la nueva mascota y se pudo ver los resultados
+
+
+### 4. Pruebas del insert y el procedimiento con nuevos usuarios a nivel de roles de la base de datos
+
+
 
 
 
