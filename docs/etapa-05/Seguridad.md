@@ -166,7 +166,7 @@ CREATE ROLE rol_lectura_veterinarios;
 GO
 
 -- 3. Le damos permiso de SELECT (lectura) UNICAMENTE sobre esa tabla en ese rol
-GRANT SELECT ON VETERINARIO TO rol_lectura_veterinarios;
+GRANT SELECT ON dbo.VETERINARIO TO rol_lectura_veterinarios;
 GO
 
 -- 4. Agregamos a uno de los usuarios al rol personalizado creado
