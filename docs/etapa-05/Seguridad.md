@@ -26,6 +26,7 @@ GO
 
 ```
 
+
 ### 2. Asignación de roles a diferentes usuarios y asignar permiso de ejecución al usuario con permiso de solo lectura
 
 Luego de haber creado dichos usuarios, les asignaremos los roles correspondientes, uno le asignaremos el rol de admin y otro de solo lectura:
@@ -45,7 +46,7 @@ GO
 Una vez asignado los roles, le asignaremos al usuario de lectura (usr_lectura) el permiso para ejecutar uno de los procedimientos de nuestra base de datos, que es la siguiente:
 
 ```sql
---Procedimiento para consultar el historial clinico completo de una mascota y en el que se lo asignaremos al usuario usr_lectura
+-- 1. Crear el procedimiento con los nombres de columnas correctos
 CREATE PROCEDURE dbo.sp_historialClinicoMascota
 (
     @id_mascota INT
@@ -53,22 +54,21 @@ CREATE PROCEDURE dbo.sp_historialClinicoMascota
 AS
 BEGIN
     SET NOCOUNT ON;
-
     SELECT 
         m.id_mascota,
         m.nombre AS mascota,
         m.especie,
-        c.fecha_consulta,
-        c.diagnostico,
+        c.fecha AS fecha_consulta,
+        c.motivo AS diagnostico, -- Usamos 'motivo' como diagnóstico ya que es la columna disponible
         v.apellido + ', ' + v.nombre AS veterinario,
         ISNULL(t.descripcion, 'Sin tratamiento') AS tratamiento,
-        ISNULL(t.medicamento, 'N/A') AS medicamento
+        ISNULL(t.tipo_tratamiento, 'N/A') AS medicamento -- Adaptado al campo real de tratamiento
     FROM MASCOTA m
     INNER JOIN CONSULTA c ON c.id_mascota = m.id_mascota
     INNER JOIN VETERINARIO v ON v.id_veterinario = c.id_veterinario
-    LEFT JOIN TRATAMIENTO t ON t.id_consulta = c.id_consulta
+    LEFT JOIN TRATAMIENTO t ON t.nro_consulta = c.id_nroConsulta
     WHERE m.id_mascota = @id_mascota
-    ORDER BY c.fecha_consulta DESC;
+    ORDER BY c.fecha DESC;
 END;
 GO
 
@@ -76,9 +76,10 @@ GO
 Y este es el script que usaremos para asignar dicho procedimiento:
 
 ```sql
--- Otorgamos permiso de ejecución al usuario sobre el procedimiento almacenado
-GRANT EXECUTE ON dbo.sp_historialClinicoMascota TO usr_lectura;
+-- 2. Otorgar el permiso de ejecución al usuario de lectura
+GRANT EXECUTE ON dbo.sp_historialClinicoMascota TO [usr_lectura];
 GO
+
 ```
 
 ### 3. Pruebas del insert y el procedimiento con ambos usuarios
@@ -109,29 +110,14 @@ Nos soltara el siguiente mensaje la consola:
 
 Como se puede apreciar, el permiso de INSERT fue denegado en el usuario lectura, sin embargo, al usar el procedimiento que le otorgamos anteriormente:
 
+<img width="830" height="480" alt="Captura de pantalla 2026-11-03 221318" src="https://github.com/user-attachments/assets/2f02692d-1b88-42a2-ad07-ff2918769f12" />
+
+Se puede apreciar que logra realizar el procedimiento correspondiente, debido a que ya le habiamos asignado este procedimiento a usr_lectura
+
+Ahora revertiremos, y iremos al usuario admin, en el que, al ejecutar ya sea un INSERT, DELECT o un SELECT, saldria bien la consulta, lo haremos con este script:
 
 
-
-
-----------------------------------------------------
--- 1. PROBANDO CON EL USUARIO DE LECTURA (usr_lectura)
-----------------------------------------------------
-EXECUTE AS LOGIN = 'LgnLectura';
-GO
-
-
-
-
--- Si iniciaras sesión como usr_lectura_tp y ejecutas esto: creo que daria error
-INSERT INTO MASCOTA (nombre, especie, raza, edad, peso, id_cliente)
-VALUES
-('Enzo', 'Perro', 'Salchicha', '7', '15 kilos', 4);
-
-
--- Ejecutando con el usuario lector:
-EXEC dbo.sp_historialClinicoMascota @id_mascota = 1;
-GO
-
+```sql
 -- Volvemos a nuestro usuario administrador original:
 REVERT;
 GO
@@ -150,6 +136,13 @@ GO
 -- Volvemos a nuestro usuario administrador original:
 REVERT;
 GO
+```
+
+
+
+
+
+
 
 
 
