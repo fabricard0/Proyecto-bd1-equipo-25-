@@ -64,7 +64,7 @@ BEGIN
         ISNULL(t.descripcion, 'Sin tratamiento') AS tratamiento,
         ISNULL(t.medicamento, 'N/A') AS medicamento
     FROM MASCOTA m
-    INNER JOIN CONSULTA_MEDICA c ON c.id_mascota = m.id_mascota
+    INNER JOIN CONSULTA c ON c.id_mascota = m.id_mascota
     INNER JOIN VETERINARIO v ON v.id_veterinario = c.id_veterinario
     LEFT JOIN TRATAMIENTO t ON t.id_consulta = c.id_consulta
     WHERE m.id_mascota = @id_mascota
